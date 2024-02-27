@@ -11,7 +11,7 @@ import SwiftUI
 struct WorldOfPaybackApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TransactionView()
         }
     }
 }
