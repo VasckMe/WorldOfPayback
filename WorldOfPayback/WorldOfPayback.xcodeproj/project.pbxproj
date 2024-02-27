@@ -29,6 +29,15 @@
 		18F626C92B8E367C00662542 /* HTTPRequestModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626C82B8E367C00662542 /* HTTPRequestModelProtocol.swift */; };
 		18F626CB2B8E3C8900662542 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626CA2B8E3C8900662542 /* NetworkError.swift */; };
 		18F626CD2B8E3C9A00662542 /* HTTPRequestExecutorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626CC2B8E3C9A00662542 /* HTTPRequestExecutorProtocol.swift */; };
+		18F626D02B8E4C7000662542 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626CF2B8E4C7000662542 /* NetworkService.swift */; };
+		18F626D22B8E4D6100662542 /* PBTransactionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626D12B8E4D6100662542 /* PBTransactionResponse.swift */; };
+		18F626D42B8E4D9700662542 /* PBTransactionsResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626D32B8E4D9700662542 /* PBTransactionsResponse.swift */; };
+		18F626D62B8E4EC700662542 /* PBTransactionAliasResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626D52B8E4EC700662542 /* PBTransactionAliasResponse.swift */; };
+		18F626D82B8E4ED000662542 /* PBTransactionDetailResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626D72B8E4ED000662542 /* PBTransactionDetailResponse.swift */; };
+		18F626DA2B8E4EDB00662542 /* PBTransactionValueResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626D92B8E4EDB00662542 /* PBTransactionValueResponse.swift */; };
+		18F626DD2B8E535F00662542 /* HelperUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626DC2B8E535F00662542 /* HelperUtilities.swift */; };
+		18F626DF2B8E53D400662542 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626DE2B8E53D400662542 /* DateFormat.swift */; };
+		18F626E12B8E551800662542 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626E02B8E551800662542 /* NetworkServiceProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +83,15 @@
 		18F626C82B8E367C00662542 /* HTTPRequestModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestModelProtocol.swift; sourceTree = "<group>"; };
 		18F626CA2B8E3C8900662542 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		18F626CC2B8E3C9A00662542 /* HTTPRequestExecutorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestExecutorProtocol.swift; sourceTree = "<group>"; };
+		18F626CF2B8E4C7000662542 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		18F626D12B8E4D6100662542 /* PBTransactionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBTransactionResponse.swift; sourceTree = "<group>"; };
+		18F626D32B8E4D9700662542 /* PBTransactionsResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBTransactionsResponse.swift; sourceTree = "<group>"; };
+		18F626D52B8E4EC700662542 /* PBTransactionAliasResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBTransactionAliasResponse.swift; sourceTree = "<group>"; };
+		18F626D72B8E4ED000662542 /* PBTransactionDetailResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBTransactionDetailResponse.swift; sourceTree = "<group>"; };
+		18F626D92B8E4EDB00662542 /* PBTransactionValueResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBTransactionValueResponse.swift; sourceTree = "<group>"; };
+		18F626DC2B8E535F00662542 /* HelperUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperUtilities.swift; sourceTree = "<group>"; };
+		18F626DE2B8E53D400662542 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
+		18F626E02B8E551800662542 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,12 +142,13 @@
 		18F6267C2B8E114200662542 /* WorldOfPayback */ = {
 			isa = PBXGroup;
 			children = (
-				18F626B32B8E2C3E00662542 /* Core */,
-				18F626B02B8E2C0200662542 /* ViewModel */,
-				18F626AA2B8E28F200662542 /* View */,
-				18F626A72B8E1B4D00662542 /* Model */,
+				18F626CE2B8E4C6400662542 /* Service */,
 				18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */,
 				18F626812B8E114400662542 /* Assets.xcassets */,
+				18F626B32B8E2C3E00662542 /* Core */,
+				18F626A72B8E1B4D00662542 /* Model */,
+				18F626AA2B8E28F200662542 /* View */,
+				18F626B02B8E2C0200662542 /* ViewModel */,
 				18F626832B8E114400662542 /* Preview Content */,
 			);
 			path = WorldOfPayback;
@@ -164,6 +183,11 @@
 			isa = PBXGroup;
 			children = (
 				18F626A82B8E1B5900662542 /* PBTransaction.swift */,
+				18F626D12B8E4D6100662542 /* PBTransactionResponse.swift */,
+				18F626D32B8E4D9700662542 /* PBTransactionsResponse.swift */,
+				18F626D52B8E4EC700662542 /* PBTransactionAliasResponse.swift */,
+				18F626D72B8E4ED000662542 /* PBTransactionDetailResponse.swift */,
+				18F626D92B8E4EDB00662542 /* PBTransactionValueResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -189,6 +213,7 @@
 		18F626B32B8E2C3E00662542 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				18F626DB2B8E535300662542 /* HelperUtils */,
 				18F626B82B8E2ECE00662542 /* Network */,
 			);
 			path = Core;
@@ -234,6 +259,24 @@
 				18F626C62B8E35E000662542 /* HTTPRequest.swift */,
 			);
 			path = Component;
+			sourceTree = "<group>";
+		};
+		18F626CE2B8E4C6400662542 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				18F626CF2B8E4C7000662542 /* NetworkService.swift */,
+				18F626E02B8E551800662542 /* NetworkServiceProtocol.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		18F626DB2B8E535300662542 /* HelperUtils */ = {
+			isa = PBXGroup;
+			children = (
+				18F626DC2B8E535F00662542 /* HelperUtilities.swift */,
+				18F626DE2B8E53D400662542 /* DateFormat.swift */,
+			);
+			path = HelperUtils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,21 +410,30 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F626C52B8E346E00662542 /* HTTPRequestBuilderProtocol.swift in Sources */,
+				18F626DA2B8E4EDB00662542 /* PBTransactionValueResponse.swift in Sources */,
 				18F626CB2B8E3C8900662542 /* NetworkError.swift in Sources */,
 				18F626A92B8E1B5900662542 /* PBTransaction.swift in Sources */,
 				18F626AC2B8E290200662542 /* TransactionCellView.swift in Sources */,
+				18F626DD2B8E535F00662542 /* HelperUtilities.swift in Sources */,
+				18F626D02B8E4C7000662542 /* NetworkService.swift in Sources */,
+				18F626D22B8E4D6100662542 /* PBTransactionResponse.swift in Sources */,
 				18F626AE2B8E293200662542 /* TransactionDetailedView.swift in Sources */,
 				18F626C12B8E32DA00662542 /* HTTPMethod.swift in Sources */,
 				18F626802B8E114200662542 /* TransactionView.swift in Sources */,
+				18F626D42B8E4D9700662542 /* PBTransactionsResponse.swift in Sources */,
 				18F626C92B8E367C00662542 /* HTTPRequestModelProtocol.swift in Sources */,
 				18F626B72B8E2C5E00662542 /* HTTPRequestExecutor.swift in Sources */,
 				18F626C32B8E345700662542 /* HTTPRequestBuilderError.swift in Sources */,
 				18F6267E2B8E114200662542 /* WorldOfPaybackApp.swift in Sources */,
+				18F626D62B8E4EC700662542 /* PBTransactionAliasResponse.swift in Sources */,
 				18F626BF2B8E326E00662542 /* HTTPPath.swift in Sources */,
 				18F626CD2B8E3C9A00662542 /* HTTPRequestExecutorProtocol.swift in Sources */,
 				18F626BD2B8E2F0500662542 /* HTTPRequestModel.swift in Sources */,
+				18F626D82B8E4ED000662542 /* PBTransactionDetailResponse.swift in Sources */,
 				18F626C72B8E35E000662542 /* HTTPRequest.swift in Sources */,
 				18F626B22B8E2C1200662542 /* TransactionViewModel.swift in Sources */,
+				18F626DF2B8E53D400662542 /* DateFormat.swift in Sources */,
+				18F626E12B8E551800662542 /* NetworkServiceProtocol.swift in Sources */,
 				18F626B52B8E2C5300662542 /* HTTPRequestBuilder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
