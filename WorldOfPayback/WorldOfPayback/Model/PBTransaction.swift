@@ -16,3 +16,28 @@ struct PBTransaction: Identifiable, Hashable {
     let amount: Int
     let currency: String
 }
+
+extension PBTransaction {
+    init?(response: PBTransactionResponse) {
+        
+        let formatter = HelperUtilities.dateFormatter
+        formatter.dateFormat = DateFormat.long.rawValue
+        
+        guard
+            let id = Int(response.alias.reference),
+            let date = formatter.date(from: response.transactionDetail.bookingDate)
+        else {
+            return nil
+        }
+        
+        self.init(
+            id: id,
+            partnerDisplayName: response.partnerDisplayName,
+            category: response.category,
+            description: response.transactionDetail.description,
+            bookingDate: date,
+            amount: response.transactionDetail.value.amount,
+            currency: response.transactionDetail.value.currency
+        )
+    }
+}
