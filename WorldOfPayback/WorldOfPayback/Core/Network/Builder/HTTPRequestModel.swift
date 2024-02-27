@@ -5,7 +5,7 @@
 //  Created by Anton Kasaryn on 27.02.24.
 //
 
-struct RequestModel: RequestModelProtocol {
+struct HTTPRequestModel: HTTPRequestModelProtocol {
     var method: HTTPMethod
     var path: HTTPPath
     var query: [String: String]?

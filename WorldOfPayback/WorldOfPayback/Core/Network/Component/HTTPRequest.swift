@@ -10,10 +10,10 @@ import Foundation
 enum HTTPRequest {
     case transactionGET
     
-    var request: RequestModelProtocol {
+    var request: HTTPRequestModelProtocol {
         switch self {
         case .transactionGET:
-            return RequestModel(method: .get, path: .transactions)
+            return HTTPRequestModel(method: .get, path: .transactions)
         }
     }
 }

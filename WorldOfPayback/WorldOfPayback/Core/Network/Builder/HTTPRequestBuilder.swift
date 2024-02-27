@@ -27,7 +27,7 @@ final class HTTPRequestBuilder: HTTPRequestBuilderProtocol {
 // MARK: - Private
     
 private extension HTTPRequestBuilder {
-    func buildURL(request: RequestModelProtocol) throws -> URL {
+    func buildURL(request: HTTPRequestModelProtocol) throws -> URL {
         guard let baseURL = URL(string: baseURLString) else {
             throw HTTPRequestBuilderError.invalidBaseURL
         }
@@ -35,7 +35,7 @@ private extension HTTPRequestBuilder {
         return try buildURL(url: baseURL, request: request)
     }
     
-    func buildURL(url: URL, request: RequestModelProtocol) throws -> URL {
+    func buildURL(url: URL, request: HTTPRequestModelProtocol) throws -> URL {
         guard var components = URLComponents(url: url, resolvingAgainstBaseURL: true) else {
             throw HTTPRequestBuilderError.invalidBaseURL
         }
@@ -53,7 +53,7 @@ private extension HTTPRequestBuilder {
         return url
     }
     
-    private func buildQueryParameters(request: RequestModelProtocol) -> [URLQueryItem]? {
+    private func buildQueryParameters(request: HTTPRequestModelProtocol) -> [URLQueryItem]? {
         guard let parameters = request.query else {
             return nil
         }
@@ -61,7 +61,7 @@ private extension HTTPRequestBuilder {
         return parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
     }
     
-    private func buildURLRequest(url: URL, request: RequestModelProtocol) throws -> URLRequest {
+    private func buildURLRequest(url: URL, request: HTTPRequestModelProtocol) throws -> URLRequest {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
         
@@ -73,7 +73,7 @@ private extension HTTPRequestBuilder {
         return urlRequest
     }
     
-    private func buildBody(request: RequestModelProtocol) throws -> Data? {
+    private func buildBody(request: HTTPRequestModelProtocol) throws -> Data? {
         guard let body = request.body else {
             return nil
         }
@@ -85,7 +85,7 @@ private extension HTTPRequestBuilder {
         }
     }
     
-    private func addHeaders(from request: RequestModelProtocol, to urlRequest: URLRequest) -> URLRequest {
+    private func addHeaders(from request: HTTPRequestModelProtocol, to urlRequest: URLRequest) -> URLRequest {
         var headers: [String: String] = [:]
         
         if let header = request.header {
