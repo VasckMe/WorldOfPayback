@@ -1,6 +1,6 @@
 # PAYBACK Coding Challenge
 
-A new SwiftUI App named **WorldOfPAYBACK** is planned to be released. One of its first features involves displaying a list of transactions, and a corresponding detail screen for each.
+Simple SwiftUI App with a list of transactions and a corresponding detail screen for each
 
 ## Requirements
 
@@ -12,7 +12,3 @@ A new SwiftUI App named **WorldOfPAYBACK** is planned to be released. One of its
 * As a user of the App, I want to see the sum of filtered transactions somewhere on the Transaction-list view. *(Sum of `value.amount`)*
 * As a user of the App, I want to select a transaction and navigate to its details. The details-view should just display `partnerDisplayName` and `transactionDetail.description`.
 * As a user of the App, I like to see nice UI in general. However, for this coding challenge fancy UI is not required.
-
-## Disclaimer
-
-All rights reserved, 2022 Loyalty Partner GmbH. Any transfer to third parties and/or reproduction is not permitted.
