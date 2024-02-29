@@ -27,7 +27,7 @@ enum PBTransactionCategory: CaseIterable {
     var title: String {
         switch self {
         case .all:
-            return "All"
+            return "TransactionView_Menu_category_choice_all".localized()
         case .first:
             return "1"
         case .second:

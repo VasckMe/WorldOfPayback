@@ -1,0 +1,16 @@
+"TransactionView_title" = "Transaction List";
+"TransactionView_Button_fetch_title" = "Fetch";
+"TransactionView_Menu_filter_title" = "Filter";
+"TransactionView_Menu_category_title" = "Category";
+"TransactionView_Menu_category_choice_all" = "All";
+
+"NetworkError_badResponse_description" = "Bad response";
+"NetworkError_badParsing_description" = "Invalid data parsing";
+"NetworkError_offline_description" = "Your device is offline";
+"NetworkError_unknown_description" = "Ops... something gone wrong";
+
+"HTTPRequestBuilderError_invalidBaseURL_description" = "Invalid base URL";
+"HTTPRequestBuilderError_invalidQueryParameters_description" = "Invalid URL query parameters";
+"HTTPRequestBuilderError_invalidBody_description" = "Invalid URL body";
+
+"Error" = "Error";

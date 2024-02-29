@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		184DAD492B9082AD0022A6B9 /* PBTransactionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD482B9082AD0022A6B9 /* PBTransactionCategory.swift */; };
+		184DAD4D2B9089BC0022A6B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 184DAD4F2B9089BC0022A6B9 /* Localizable.strings */; };
+		184DAD572B908E030022A6B9 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD562B908E030022A6B9 /* String+Localizable.swift */; };
 		18F6267E2B8E114200662542 /* WorldOfPaybackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */; };
 		18F626802B8E114200662542 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6267F2B8E114200662542 /* TransactionView.swift */; };
 		18F626822B8E114400662542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F626812B8E114400662542 /* Assets.xcassets */; };
@@ -62,6 +64,9 @@
 
 /* Begin PBXFileReference section */
 		184DAD482B9082AD0022A6B9 /* PBTransactionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBTransactionCategory.swift; sourceTree = "<group>"; };
+		184DAD4E2B9089BC0022A6B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		184DAD502B9089E10022A6B9 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
+		184DAD562B908E030022A6B9 /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
 		18F6267A2B8E114200662542 /* WorldOfPayback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldOfPayback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPaybackApp.swift; sourceTree = "<group>"; };
 		18F6267F2B8E114200662542 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
@@ -125,6 +130,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		184DAD4A2B90897F0022A6B9 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				184DAD4F2B9089BC0022A6B9 /* Localizable.strings */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		184DAD522B908DAB0022A6B9 /* Localization */ = {
+			isa = PBXGroup;
+			children = (
+				184DAD562B908E030022A6B9 /* String+Localizable.swift */,
+			);
+			path = Localization;
+			sourceTree = "<group>";
+		};
 		18F626712B8E114200662542 = {
 			isa = PBXGroup;
 			children = (
@@ -148,6 +169,7 @@
 		18F6267C2B8E114200662542 /* WorldOfPayback */ = {
 			isa = PBXGroup;
 			children = (
+				184DAD4A2B90897F0022A6B9 /* Resources */,
 				18F626E42B8E688700662542 /* Mock Data */,
 				18F626CE2B8E4C6400662542 /* Service */,
 				18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */,
@@ -221,6 +243,7 @@
 		18F626B32B8E2C3E00662542 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				184DAD522B908DAB0022A6B9 /* Localization */,
 				18F626DB2B8E535300662542 /* HelperUtils */,
 				18F626B82B8E2ECE00662542 /* Network */,
 			);
@@ -382,6 +405,7 @@
 			knownRegions = (
 				en,
 				Base,
+				pl,
 			);
 			mainGroup = 18F626712B8E114200662542;
 			productRefGroup = 18F6267B2B8E114200662542 /* Products */;
@@ -401,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F626852B8E114400662542 /* Preview Assets.xcassets in Resources */,
+				184DAD4D2B9089BC0022A6B9 /* Localizable.strings in Resources */,
 				18F626E62B8E689100662542 /* PBTransactions.json in Resources */,
 				18F626822B8E114400662542 /* Assets.xcassets in Resources */,
 			);
@@ -455,6 +480,7 @@
 				18F626DF2B8E53D400662542 /* DateFormat.swift in Sources */,
 				18F626E12B8E551800662542 /* NetworkServiceProtocol.swift in Sources */,
 				18F626B52B8E2C5300662542 /* HTTPRequestBuilder.swift in Sources */,
+				184DAD572B908E030022A6B9 /* String+Localizable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -490,11 +516,24 @@
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		184DAD4F2B9089BC0022A6B9 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				184DAD4E2B9089BC0022A6B9 /* en */,
+				184DAD502B9089E10022A6B9 /* pl */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
 		18F6269C2B8E114500662542 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -555,6 +594,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";

@@ -1,0 +1,16 @@
+"TransactionView_title" = "Lista transakcji";
+"TransactionView_Button_fetch_title" = "Pobierz";
+"TransactionView_Menu_filter_title" = "Filtr";
+"TransactionView_Menu_category_title" = "Kategoria";
+"TransactionView_Menu_category_choice_all" = "Wszystkie";
+
+"NetworkError_badResponse_description" = "Zła odpowiedź";
+"NetworkError_badParsing_description" = "Nieprawidłowa analiza danych";
+"NetworkError_offline_description" = "Twoje urządzenie jest offline";
+"NetworkError_unknown_description" = "Ops... coś poszło nie tak";
+
+"HTTPRequestBuilderError_invalidBaseURL_description" = "Nieprawidłowy podstawowy adres URL";
+"HTTPRequestBuilderError_invalidQueryParameters_description" = "Nieprawidłowe parametry zapytania adresu URL";
+"HTTPRequestBuilderError_invalidBody_description" = "Nieprawidłowa treść adresu URL";
+
+"Error" = "Błąd";

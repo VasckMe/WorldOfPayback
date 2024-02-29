@@ -12,8 +12,15 @@ enum NetworkError: Error {
     case unknown
     
     var description: String {
-        // TODO: Error with localization
-        // TODO: Languages
-        return "Error"
+        switch self {
+        case .badResponse:
+            return "NetworkError_badResponse_description".localized()
+        case .badParsing:
+            return "NetworkError_badParsing_description".localized()
+        case .offline:
+            return "NetworkError_offline_description".localized()
+        case .unknown:
+            return "NetworkError_unknown_description".localized()
+        }
     }
 }

@@ -17,19 +17,19 @@ struct TransactionView: View {
                 List(viewModel.transactionsToShow) { transaction in
                     TransactionCellView(transaction: transaction)
                 }
-                .navigationTitle("Transactions list")
+                .navigationTitle("TransactionView_title".localized())
                 .toolbar(content: {
                     HStack(alignment: .center) {
                         if viewModel.isLoading {
                             ProgressView()
                         } else {
-                            Button("Fetch") {
+                            Button("TransactionView_Button_fetch_title".localized()) {
                                 viewModel.fetchTransactions()
                             }
                         }
                         
-                        Menu("Filter") {
-                            Menu("Category") {
+                        Menu("TransactionView_Menu_filter_title".localized()) {
+                            Menu("TransactionView_Menu_category_title".localized()) {
                                 ForEach(PBTransactionCategory.allCases, id: \.id) { category in
                                     Button("\(category.title)", action: { viewModel.category = category })
                                 }
@@ -45,5 +45,18 @@ struct TransactionView: View {
 //struct ContentView_Previews: PreviewProvider {
 //    static var previews: some View {
 //        TransactionView()
+//    }
+//}
+//import Foundation
+//import UIKit
+//extension String {
+//    var localized: String {
+//        return NSLocalizedString(
+//            self,
+//            tableName: "Localizable",
+//            bundle: .main,
+//            value: self,
+//            comment: self
+//        )
 //    }
 //}
