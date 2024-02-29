@@ -7,4 +7,5 @@
 
 enum DateFormat: String {
     case long = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+    case HHmm = "HH:mm"
 }

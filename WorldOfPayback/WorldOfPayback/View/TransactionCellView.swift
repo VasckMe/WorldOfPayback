@@ -13,9 +13,19 @@ struct TransactionCellView: View {
     
     var body: some View {
         NavigationLink(destination: TransactionDetailedView(transaction: transaction)) {
-            VStack(alignment: .leading) {
-                Text("\(transaction.partnerDisplayName)")
+            HStack {
+                VStack(alignment: .leading, spacing: 5) {
+                    Text("\(transaction.partnerDisplayName)")
+                        .bold()
+                    Text("\(transaction.description ?? "-")")
+                    Text(transaction.timeString)
+                        .underline(color: .black)
+                }
+                Spacer()
+                
+                Text(transaction.valueString)
             }
+            .padding()
         }
     }
 }

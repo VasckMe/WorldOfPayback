@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		184DAD492B9082AD0022A6B9 /* PBTransactionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD482B9082AD0022A6B9 /* PBTransactionCategory.swift */; };
 		18F6267E2B8E114200662542 /* WorldOfPaybackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */; };
 		18F626802B8E114200662542 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6267F2B8E114200662542 /* TransactionView.swift */; };
 		18F626822B8E114400662542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F626812B8E114400662542 /* Assets.xcassets */; };
@@ -38,6 +39,8 @@
 		18F626DD2B8E535F00662542 /* HelperUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626DC2B8E535F00662542 /* HelperUtilities.swift */; };
 		18F626DF2B8E53D400662542 /* DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626DE2B8E53D400662542 /* DateFormat.swift */; };
 		18F626E12B8E551800662542 /* NetworkServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626E02B8E551800662542 /* NetworkServiceProtocol.swift */; };
+		18F626E32B8E681300662542 /* MockNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626E22B8E681300662542 /* MockNetworkService.swift */; };
+		18F626E62B8E689100662542 /* PBTransactions.json in Resources */ = {isa = PBXBuildFile; fileRef = 18F626E52B8E689100662542 /* PBTransactions.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		184DAD482B9082AD0022A6B9 /* PBTransactionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBTransactionCategory.swift; sourceTree = "<group>"; };
 		18F6267A2B8E114200662542 /* WorldOfPayback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldOfPayback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPaybackApp.swift; sourceTree = "<group>"; };
 		18F6267F2B8E114200662542 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
@@ -92,6 +96,8 @@
 		18F626DC2B8E535F00662542 /* HelperUtilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelperUtilities.swift; sourceTree = "<group>"; };
 		18F626DE2B8E53D400662542 /* DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormat.swift; sourceTree = "<group>"; };
 		18F626E02B8E551800662542 /* NetworkServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceProtocol.swift; sourceTree = "<group>"; };
+		18F626E22B8E681300662542 /* MockNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkService.swift; sourceTree = "<group>"; };
+		18F626E52B8E689100662542 /* PBTransactions.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = PBTransactions.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,6 +148,7 @@
 		18F6267C2B8E114200662542 /* WorldOfPayback */ = {
 			isa = PBXGroup;
 			children = (
+				18F626E42B8E688700662542 /* Mock Data */,
 				18F626CE2B8E4C6400662542 /* Service */,
 				18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */,
 				18F626812B8E114400662542 /* Assets.xcassets */,
@@ -188,6 +195,7 @@
 				18F626D52B8E4EC700662542 /* PBTransactionAliasResponse.swift */,
 				18F626D72B8E4ED000662542 /* PBTransactionDetailResponse.swift */,
 				18F626D92B8E4EDB00662542 /* PBTransactionValueResponse.swift */,
+				184DAD482B9082AD0022A6B9 /* PBTransactionCategory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -266,6 +274,7 @@
 			children = (
 				18F626CF2B8E4C7000662542 /* NetworkService.swift */,
 				18F626E02B8E551800662542 /* NetworkServiceProtocol.swift */,
+				18F626E22B8E681300662542 /* MockNetworkService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -277,6 +286,14 @@
 				18F626DE2B8E53D400662542 /* DateFormat.swift */,
 			);
 			path = HelperUtils;
+			sourceTree = "<group>";
+		};
+		18F626E42B8E688700662542 /* Mock Data */ = {
+			isa = PBXGroup;
+			children = (
+				18F626E52B8E689100662542 /* PBTransactions.json */,
+			);
+			path = "Mock Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,6 +401,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				18F626852B8E114400662542 /* Preview Assets.xcassets in Resources */,
+				18F626E62B8E689100662542 /* PBTransactions.json in Resources */,
 				18F626822B8E114400662542 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -415,7 +433,9 @@
 				18F626A92B8E1B5900662542 /* PBTransaction.swift in Sources */,
 				18F626AC2B8E290200662542 /* TransactionCellView.swift in Sources */,
 				18F626DD2B8E535F00662542 /* HelperUtilities.swift in Sources */,
+				18F626E32B8E681300662542 /* MockNetworkService.swift in Sources */,
 				18F626D02B8E4C7000662542 /* NetworkService.swift in Sources */,
+				184DAD492B9082AD0022A6B9 /* PBTransactionCategory.swift in Sources */,
 				18F626D22B8E4D6100662542 /* PBTransactionResponse.swift in Sources */,
 				18F626AE2B8E293200662542 /* TransactionDetailedView.swift in Sources */,
 				18F626C12B8E32DA00662542 /* HTTPMethod.swift in Sources */,
