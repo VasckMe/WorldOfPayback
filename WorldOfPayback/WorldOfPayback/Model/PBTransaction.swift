@@ -15,6 +15,17 @@ struct PBTransaction: Identifiable, Hashable {
     let bookingDate: Date
     let amount: Int
     let currency: String
+    
+    var valueString: String {
+        return "\(amount) \(currency)"
+    }
+    
+    var timeString: String {
+        let formatter = HelperUtilities.dateFormatter
+        formatter.dateFormat = DateFormat.HHmm.rawValue
+        let dateString = formatter.string(from: bookingDate)
+        return dateString
+    }
 }
 
 extension PBTransaction {
