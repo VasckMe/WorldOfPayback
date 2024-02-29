@@ -11,7 +11,13 @@ import SwiftUI
 struct WorldOfPaybackApp: App {
     var body: some Scene {
         WindowGroup {
-            TransactionView()
+            TransactionView(
+                viewModel: TransactionViewModel(
+                    networkService: MockNetworkService()
+//                        executor: HTTPRequestExecutor(builder: HTTPRequestBuilder())
+//                    )
+                )
+            )
         }
     }
 }
