@@ -30,6 +30,10 @@ final class TransactionViewModel: ObservableObject {
         }
     }
     
+    var summaryValue: Int {
+        return transactionsToShow.reduce(0) { $0 + $1.amount}
+    }
+    
     init(networkService: NetworkServiceProtocol) {
         self.networkService = networkService
     }
@@ -39,13 +43,13 @@ final class TransactionViewModel: ObservableObject {
         Task {
             do {
                 let transactions = try await networkService.fetchTransactions()
-                
                 await MainActor.run {
                     self.transactions = transactions
                     isLoading = false
                 }
             } catch {
                 await MainActor.run {
+                    errorMessage = (error as? NetworkError)?.description ?? "Error".localized()
                     isLoading = false
                     isError = true
                 }

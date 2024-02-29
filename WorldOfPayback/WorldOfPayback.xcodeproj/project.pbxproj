@@ -10,6 +10,7 @@
 		184DAD492B9082AD0022A6B9 /* PBTransactionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD482B9082AD0022A6B9 /* PBTransactionCategory.swift */; };
 		184DAD4D2B9089BC0022A6B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 184DAD4F2B9089BC0022A6B9 /* Localizable.strings */; };
 		184DAD572B908E030022A6B9 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD562B908E030022A6B9 /* String+Localizable.swift */; };
+		184DAD5A2B909AC90022A6B9 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD592B909AC90022A6B9 /* NetworkMonitor.swift */; };
 		18F6267E2B8E114200662542 /* WorldOfPaybackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */; };
 		18F626802B8E114200662542 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6267F2B8E114200662542 /* TransactionView.swift */; };
 		18F626822B8E114400662542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F626812B8E114400662542 /* Assets.xcassets */; };
@@ -67,6 +68,7 @@
 		184DAD4E2B9089BC0022A6B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		184DAD502B9089E10022A6B9 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		184DAD562B908E030022A6B9 /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
+		184DAD592B909AC90022A6B9 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
 		18F6267A2B8E114200662542 /* WorldOfPayback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldOfPayback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPaybackApp.swift; sourceTree = "<group>"; };
 		18F6267F2B8E114200662542 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
@@ -133,6 +135,7 @@
 		184DAD4A2B90897F0022A6B9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18F626812B8E114400662542 /* Assets.xcassets */,
 				184DAD4F2B9089BC0022A6B9 /* Localizable.strings */,
 			);
 			path = Resources;
@@ -144,6 +147,14 @@
 				184DAD562B908E030022A6B9 /* String+Localizable.swift */,
 			);
 			path = Localization;
+			sourceTree = "<group>";
+		};
+		184DAD582B909AC00022A6B9 /* Monitor */ = {
+			isa = PBXGroup;
+			children = (
+				184DAD592B909AC90022A6B9 /* NetworkMonitor.swift */,
+			);
+			path = Monitor;
 			sourceTree = "<group>";
 		};
 		18F626712B8E114200662542 = {
@@ -169,16 +180,15 @@
 		18F6267C2B8E114200662542 /* WorldOfPayback */ = {
 			isa = PBXGroup;
 			children = (
-				184DAD4A2B90897F0022A6B9 /* Resources */,
-				18F626E42B8E688700662542 /* Mock Data */,
-				18F626CE2B8E4C6400662542 /* Service */,
 				18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */,
-				18F626812B8E114400662542 /* Assets.xcassets */,
 				18F626B32B8E2C3E00662542 /* Core */,
+				18F626E42B8E688700662542 /* Mock Data */,
 				18F626A72B8E1B4D00662542 /* Model */,
+				18F626832B8E114400662542 /* Preview Content */,
+				184DAD4A2B90897F0022A6B9 /* Resources */,
+				18F626CE2B8E4C6400662542 /* Service */,
 				18F626AA2B8E28F200662542 /* View */,
 				18F626B02B8E2C0200662542 /* ViewModel */,
-				18F626832B8E114400662542 /* Preview Content */,
 			);
 			path = WorldOfPayback;
 			sourceTree = "<group>";
@@ -253,6 +263,7 @@
 		18F626B82B8E2ECE00662542 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				184DAD582B909AC00022A6B9 /* Monitor */,
 				18F626BB2B8E2EDD00662542 /* Component */,
 				18F626BA2B8E2ED800662542 /* Builder */,
 				18F626B92B8E2ED300662542 /* Executor */,
@@ -459,6 +470,7 @@
 				18F626AC2B8E290200662542 /* TransactionCellView.swift in Sources */,
 				18F626DD2B8E535F00662542 /* HelperUtilities.swift in Sources */,
 				18F626E32B8E681300662542 /* MockNetworkService.swift in Sources */,
+				184DAD5A2B909AC90022A6B9 /* NetworkMonitor.swift in Sources */,
 				18F626D02B8E4C7000662542 /* NetworkService.swift in Sources */,
 				184DAD492B9082AD0022A6B9 /* PBTransactionCategory.swift in Sources */,
 				18F626D22B8E4D6100662542 /* PBTransactionResponse.swift in Sources */,

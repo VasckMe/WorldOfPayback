@@ -1,8 +1,10 @@
 "TransactionView_title" = "Lista transakcji";
+"TransactionView_Text_summary" = "Suma";
 "TransactionView_Button_fetch_title" = "Pobierz";
 "TransactionView_Menu_filter_title" = "Filtr";
 "TransactionView_Menu_category_title" = "Kategoria";
 "TransactionView_Menu_category_choice_all" = "Wszystkie";
+"TransactionView_Alert_answer" = "Ok";
 
 "NetworkError_badResponse_description" = "Zła odpowiedź";
 "NetworkError_badParsing_description" = "Nieprawidłowa analiza danych";

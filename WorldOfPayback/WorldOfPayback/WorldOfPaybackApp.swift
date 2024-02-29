@@ -9,6 +9,9 @@ import SwiftUI
 
 @main
 struct WorldOfPaybackApp: App {
+    
+    @StateObject var networkMonitor = NetworkMonitor()
+    
     var body: some Scene {
         WindowGroup {
             TransactionView(
@@ -18,6 +21,7 @@ struct WorldOfPaybackApp: App {
 //                    )
                 )
             )
+            .environmentObject(networkMonitor)
         }
     }
 }
