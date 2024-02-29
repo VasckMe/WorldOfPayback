@@ -11,6 +11,11 @@
 		184DAD4D2B9089BC0022A6B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 184DAD4F2B9089BC0022A6B9 /* Localizable.strings */; };
 		184DAD572B908E030022A6B9 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD562B908E030022A6B9 /* String+Localizable.swift */; };
 		184DAD5A2B909AC90022A6B9 /* NetworkMonitor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD592B909AC90022A6B9 /* NetworkMonitor.swift */; };
+		184DAD602B90A3FE0022A6B9 /* Transaction.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD5E2B90A3FE0022A6B9 /* Transaction.xcdatamodeld */; };
+		184DAD632B90A71B0022A6B9 /* PersistenceStorageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD622B90A71B0022A6B9 /* PersistenceStorageManager.swift */; };
+		184DAD652B90A7D40022A6B9 /* PersistenceStorageManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD642B90A7D40022A6B9 /* PersistenceStorageManagerError.swift */; };
+		184DAD692B90A8B10022A6B9 /* PersistenceStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD682B90A8B10022A6B9 /* PersistenceStorageService.swift */; };
+		184DAD6B2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD6A2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift */; };
 		18F6267E2B8E114200662542 /* WorldOfPaybackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */; };
 		18F626802B8E114200662542 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6267F2B8E114200662542 /* TransactionView.swift */; };
 		18F626822B8E114400662542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F626812B8E114400662542 /* Assets.xcassets */; };
@@ -69,6 +74,11 @@
 		184DAD502B9089E10022A6B9 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
 		184DAD562B908E030022A6B9 /* String+Localizable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localizable.swift"; sourceTree = "<group>"; };
 		184DAD592B909AC90022A6B9 /* NetworkMonitor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkMonitor.swift; sourceTree = "<group>"; };
+		184DAD5F2B90A3FE0022A6B9 /* Transaction.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transaction.xcdatamodel; sourceTree = "<group>"; };
+		184DAD622B90A71B0022A6B9 /* PersistenceStorageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorageManager.swift; sourceTree = "<group>"; };
+		184DAD642B90A7D40022A6B9 /* PersistenceStorageManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorageManagerError.swift; sourceTree = "<group>"; };
+		184DAD682B90A8B10022A6B9 /* PersistenceStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorageService.swift; sourceTree = "<group>"; };
+		184DAD6A2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorageServiceProtocol.swift; sourceTree = "<group>"; };
 		18F6267A2B8E114200662542 /* WorldOfPayback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldOfPayback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPaybackApp.swift; sourceTree = "<group>"; };
 		18F6267F2B8E114200662542 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
@@ -135,6 +145,7 @@
 		184DAD4A2B90897F0022A6B9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				18F626E52B8E689100662542 /* PBTransactions.json */,
 				18F626812B8E114400662542 /* Assets.xcassets */,
 				184DAD4F2B9089BC0022A6B9 /* Localizable.strings */,
 			);
@@ -155,6 +166,56 @@
 				184DAD592B909AC90022A6B9 /* NetworkMonitor.swift */,
 			);
 			path = Monitor;
+			sourceTree = "<group>";
+		};
+		184DAD5C2B90A3C30022A6B9 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				18F626D12B8E4D6100662542 /* PBTransactionResponse.swift */,
+				18F626D32B8E4D9700662542 /* PBTransactionsResponse.swift */,
+				18F626D52B8E4EC700662542 /* PBTransactionAliasResponse.swift */,
+				18F626D72B8E4ED000662542 /* PBTransactionDetailResponse.swift */,
+				18F626D92B8E4EDB00662542 /* PBTransactionValueResponse.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
+		184DAD5D2B90A3CD0022A6B9 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				18F626A82B8E1B5900662542 /* PBTransaction.swift */,
+				184DAD482B9082AD0022A6B9 /* PBTransactionCategory.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
+		184DAD612B90A7060022A6B9 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				184DAD5E2B90A3FE0022A6B9 /* Transaction.xcdatamodeld */,
+				184DAD622B90A71B0022A6B9 /* PersistenceStorageManager.swift */,
+				184DAD642B90A7D40022A6B9 /* PersistenceStorageManagerError.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		184DAD662B90A89A0022A6B9 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				18F626CF2B8E4C7000662542 /* NetworkService.swift */,
+				18F626E02B8E551800662542 /* NetworkServiceProtocol.swift */,
+				18F626E22B8E681300662542 /* MockNetworkService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		184DAD672B90A89F0022A6B9 /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				184DAD682B90A8B10022A6B9 /* PersistenceStorageService.swift */,
+				184DAD6A2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift */,
+			);
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 		18F626712B8E114200662542 = {
@@ -182,7 +243,6 @@
 			children = (
 				18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */,
 				18F626B32B8E2C3E00662542 /* Core */,
-				18F626E42B8E688700662542 /* Mock Data */,
 				18F626A72B8E1B4D00662542 /* Model */,
 				18F626832B8E114400662542 /* Preview Content */,
 				184DAD4A2B90897F0022A6B9 /* Resources */,
@@ -221,13 +281,8 @@
 		18F626A72B8E1B4D00662542 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				18F626A82B8E1B5900662542 /* PBTransaction.swift */,
-				18F626D12B8E4D6100662542 /* PBTransactionResponse.swift */,
-				18F626D32B8E4D9700662542 /* PBTransactionsResponse.swift */,
-				18F626D52B8E4EC700662542 /* PBTransactionAliasResponse.swift */,
-				18F626D72B8E4ED000662542 /* PBTransactionDetailResponse.swift */,
-				18F626D92B8E4EDB00662542 /* PBTransactionValueResponse.swift */,
-				184DAD482B9082AD0022A6B9 /* PBTransactionCategory.swift */,
+				184DAD5D2B90A3CD0022A6B9 /* Business */,
+				184DAD5C2B90A3C30022A6B9 /* Backend */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -253,6 +308,7 @@
 		18F626B32B8E2C3E00662542 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				184DAD612B90A7060022A6B9 /* Core Data */,
 				184DAD522B908DAB0022A6B9 /* Localization */,
 				18F626DB2B8E535300662542 /* HelperUtils */,
 				18F626B82B8E2ECE00662542 /* Network */,
@@ -306,9 +362,8 @@
 		18F626CE2B8E4C6400662542 /* Service */ = {
 			isa = PBXGroup;
 			children = (
-				18F626CF2B8E4C7000662542 /* NetworkService.swift */,
-				18F626E02B8E551800662542 /* NetworkServiceProtocol.swift */,
-				18F626E22B8E681300662542 /* MockNetworkService.swift */,
+				184DAD672B90A89F0022A6B9 /* Core Data */,
+				184DAD662B90A89A0022A6B9 /* Network */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -320,14 +375,6 @@
 				18F626DE2B8E53D400662542 /* DateFormat.swift */,
 			);
 			path = HelperUtils;
-			sourceTree = "<group>";
-		};
-		18F626E42B8E688700662542 /* Mock Data */ = {
-			isa = PBXGroup;
-			children = (
-				18F626E52B8E689100662542 /* PBTransactions.json */,
-			);
-			path = "Mock Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -470,13 +517,17 @@
 				18F626AC2B8E290200662542 /* TransactionCellView.swift in Sources */,
 				18F626DD2B8E535F00662542 /* HelperUtilities.swift in Sources */,
 				18F626E32B8E681300662542 /* MockNetworkService.swift in Sources */,
+				184DAD602B90A3FE0022A6B9 /* Transaction.xcdatamodeld in Sources */,
 				184DAD5A2B909AC90022A6B9 /* NetworkMonitor.swift in Sources */,
 				18F626D02B8E4C7000662542 /* NetworkService.swift in Sources */,
 				184DAD492B9082AD0022A6B9 /* PBTransactionCategory.swift in Sources */,
 				18F626D22B8E4D6100662542 /* PBTransactionResponse.swift in Sources */,
 				18F626AE2B8E293200662542 /* TransactionDetailedView.swift in Sources */,
+				184DAD692B90A8B10022A6B9 /* PersistenceStorageService.swift in Sources */,
 				18F626C12B8E32DA00662542 /* HTTPMethod.swift in Sources */,
 				18F626802B8E114200662542 /* TransactionView.swift in Sources */,
+				184DAD632B90A71B0022A6B9 /* PersistenceStorageManager.swift in Sources */,
+				184DAD6B2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift in Sources */,
 				18F626D42B8E4D9700662542 /* PBTransactionsResponse.swift in Sources */,
 				18F626C92B8E367C00662542 /* HTTPRequestModelProtocol.swift in Sources */,
 				18F626B72B8E2C5E00662542 /* HTTPRequestExecutor.swift in Sources */,
@@ -486,6 +537,7 @@
 				18F626BF2B8E326E00662542 /* HTTPPath.swift in Sources */,
 				18F626CD2B8E3C9A00662542 /* HTTPRequestExecutorProtocol.swift in Sources */,
 				18F626BD2B8E2F0500662542 /* HTTPRequestModel.swift in Sources */,
+				184DAD652B90A7D40022A6B9 /* PersistenceStorageManagerError.swift in Sources */,
 				18F626D82B8E4ED000662542 /* PBTransactionDetailResponse.swift in Sources */,
 				18F626C72B8E35E000662542 /* HTTPRequest.swift in Sources */,
 				18F626B22B8E2C1200662542 /* TransactionViewModel.swift in Sources */,
@@ -833,6 +885,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		184DAD5E2B90A3FE0022A6B9 /* Transaction.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				184DAD5F2B90A3FE0022A6B9 /* Transaction.xcdatamodel */,
+			);
+			currentVersion = 184DAD5F2B90A3FE0022A6B9 /* Transaction.xcdatamodel */;
+			path = Transaction.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 18F626722B8E114200662542 /* Project object */;
 }

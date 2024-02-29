@@ -51,4 +51,24 @@ extension PBTransaction {
             currency: response.transactionDetail.value.currency
         )
     }
+    
+    init?(model: Transaction) {
+        guard
+            let displayName = model.partnerDisplayName,
+            let bookingDate = model.bookingDate,
+            let currency = model.currency
+        else {
+            return nil
+        }
+        
+        self.init(
+            id: Int(model.id),
+            partnerDisplayName: displayName,
+            category: Int(model.category),
+            description: model.transactionDescription,
+            bookingDate: bookingDate,
+            amount: Int(model.amount),
+            currency: currency
+        )
+    }
 }

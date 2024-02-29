@@ -18,7 +18,7 @@ struct TransactionView: View {
                 List(viewModel.transactionsToShow) { transaction in
                     TransactionCellView(transaction: transaction)
                 }
-                Text("TransactionView_Text_summary".localized() + " " + String(viewModel.summaryValue))
+                Text("TransactionView_Text_summary".localized() + ": " + String(viewModel.summaryValue))
                     .font(.title)
                     .bold()
                 .navigationTitle("TransactionView_title".localized())

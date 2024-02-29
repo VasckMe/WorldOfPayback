@@ -8,6 +8,10 @@
 import Foundation
 
 final class MockNetworkService {
+    private let persistenceSerivce: PersistenceStorageServiceProtocol
+    init() {
+        self.persistenceSerivce = PersistenceStorageService(persistenceManager: PersistenceStorageManager())
+    }
 }
 
 // MARK: - NetworkServiceProtocol
@@ -17,7 +21,11 @@ extension MockNetworkService: NetworkServiceProtocol {
         
         let list = PBTransactionResponse.mockedResponse()
 
-        return list.compactMap { PBTransaction(response: $0) }
+        let transactions = list.compactMap { PBTransaction(response: $0) }
+        
+//        await persistenceSerivce.save(transactions: transactions)
+//        return persistenceSerivce.getTransactions()
+        return transactions
     }
 }
 
@@ -34,7 +42,6 @@ extension PBTransactionResponse {
             let response = try JSONDecoder().decode(PBTransactionsResponse.self, from: jsonData)
             return response.items
         } catch {
-            print(error)
             return []
         }
     }
