@@ -16,6 +16,7 @@
 		184DAD652B90A7D40022A6B9 /* PersistenceStorageManagerError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD642B90A7D40022A6B9 /* PersistenceStorageManagerError.swift */; };
 		184DAD692B90A8B10022A6B9 /* PersistenceStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD682B90A8B10022A6B9 /* PersistenceStorageService.swift */; };
 		184DAD6B2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD6A2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift */; };
+		18AB08C42B9103D2008C26FF /* PersistenceStorageManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB08C32B9103D2008C26FF /* PersistenceStorageManagerProtocol.swift */; };
 		18F6267E2B8E114200662542 /* WorldOfPaybackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */; };
 		18F626802B8E114200662542 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6267F2B8E114200662542 /* TransactionView.swift */; };
 		18F626822B8E114400662542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F626812B8E114400662542 /* Assets.xcassets */; };
@@ -79,6 +80,7 @@
 		184DAD642B90A7D40022A6B9 /* PersistenceStorageManagerError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorageManagerError.swift; sourceTree = "<group>"; };
 		184DAD682B90A8B10022A6B9 /* PersistenceStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorageService.swift; sourceTree = "<group>"; };
 		184DAD6A2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorageServiceProtocol.swift; sourceTree = "<group>"; };
+		18AB08C32B9103D2008C26FF /* PersistenceStorageManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorageManagerProtocol.swift; sourceTree = "<group>"; };
 		18F6267A2B8E114200662542 /* WorldOfPayback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldOfPayback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPaybackApp.swift; sourceTree = "<group>"; };
 		18F6267F2B8E114200662542 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
@@ -192,9 +194,10 @@
 		184DAD612B90A7060022A6B9 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				184DAD5E2B90A3FE0022A6B9 /* Transaction.xcdatamodeld */,
 				184DAD622B90A71B0022A6B9 /* PersistenceStorageManager.swift */,
 				184DAD642B90A7D40022A6B9 /* PersistenceStorageManagerError.swift */,
+				18AB08C32B9103D2008C26FF /* PersistenceStorageManagerProtocol.swift */,
+				184DAD5E2B90A3FE0022A6B9 /* Transaction.xcdatamodeld */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -515,6 +518,7 @@
 				18F626CB2B8E3C8900662542 /* NetworkError.swift in Sources */,
 				18F626A92B8E1B5900662542 /* PBTransaction.swift in Sources */,
 				18F626AC2B8E290200662542 /* TransactionCellView.swift in Sources */,
+				18AB08C42B9103D2008C26FF /* PersistenceStorageManagerProtocol.swift in Sources */,
 				18F626DD2B8E535F00662542 /* HelperUtilities.swift in Sources */,
 				18F626E32B8E681300662542 /* MockNetworkService.swift in Sources */,
 				184DAD602B90A3FE0022A6B9 /* Transaction.xcdatamodeld in Sources */,

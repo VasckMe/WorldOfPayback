@@ -7,59 +7,25 @@
 
 import CoreData
 
-protocol PersistenceStorageManagerProtocol {
-    func retrieveObjects<T: NSManagedObject>(type: T.Type) throws -> [T]
-    func deleteObjects<T: NSManagedObject>(type: T.Type, predicate: NSPredicate?) throws
-    func save()
-    
-    var context: NSManagedObjectContext { get }
-}
-
 final class PersistenceStorageManager {
-    
+    static let shared: PersistenceStorageManagerProtocol = PersistenceStorageManager()
+
     private let containerName = "Transaction"
     
-    static let shared: PersistenceStorageManagerProtocol = PersistenceStorageManager()
-    
-    private lazy var persistentContainer: NSPersistentContainer = {
-        guard let modelURL = Bundle.main.url(forResource: containerName, withExtension: "momd") else {
-            fatalError("Unable to Find Data Model")
-        }
-
-        guard let managedObjectModel = NSManagedObjectModel(contentsOf: modelURL) else {
-            fatalError("Unable to Load Data Model")
-        }
-
-        let container = NSPersistentContainer(name: containerName, managedObjectModel: managedObjectModel)
-        container.loadPersistentStores(completionHandler: { (_, error) in
-            if let error = error as NSError? {
-                fatalError("Unresolved error \(error), \(error.userInfo)")
-            }
-        })
-
-
-        return container
+    private(set) lazy var context: NSManagedObjectContext = {
+        persistentContainer.newBackgroundContext()
     }()
 
-    var context: NSManagedObjectContext {
-        return self.persistentContainer.viewContext
-    }
+    private let persistentContainer: NSPersistentContainer
     
-//    private(set) lazy var context: NSManagedObjectContext = {
-//        persistentContainer.newBackgroundContext()
-//    }()
-//
-//    private let persistentContainer: NSPersistentContainer
-    
-    required init() {
-//        let container = NSPersistentContainer(name: containerName)
-//        container.loadPersistentStores { _, error in
-//            if let error = error as? NSError {
-//                print(error)
-//            }
-//        }
-//        persistentContainer = container
-//        context.mergePolicy = NSMergeByPropertyObjectTrumpMergePolicy
+    init() {
+        let container = NSPersistentContainer(name: containerName)
+        container.loadPersistentStores { _, error in
+            if let error = error as? NSError {
+                print(error)
+            }
+        }
+        persistentContainer = container
     }
 }
 

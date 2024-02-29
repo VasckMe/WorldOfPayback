@@ -18,34 +18,36 @@ struct TransactionView: View {
                 List(viewModel.transactionsToShow) { transaction in
                     TransactionCellView(transaction: transaction)
                 }
-                Text("TransactionView_Text_summary".localized() + ": " + String(viewModel.summaryValue))
+                
+                Text(viewModel.summaryLabel)
                     .font(.title)
                     .bold()
-                .navigationTitle("TransactionView_title".localized())
-                .toolbar(content: {
-                    if viewModel.isLoading {
-                        ProgressView()
-                    } else {
-                        Button("TransactionView_Button_fetch_title".localized()) {
-                            viewModel.fetchTransactions()
-                        }
-                    }
-                    
-                    Menu("TransactionView_Menu_filter_title".localized()) {
-                        Menu("TransactionView_Menu_category_title".localized()) {
-                            ForEach(PBTransactionCategory.allCases, id: \.id) { category in
-                                Button("\(category.title)", action: { viewModel.category = category })
+                    .navigationTitle(viewModel.titleLabel)
+                
+                    .toolbar(content: {
+                        if viewModel.isLoading {
+                            ProgressView()
+                        } else {
+                            Button(viewModel.fetchButtonTitleLabel) {
+                                viewModel.fetchTransactions()
                             }
                         }
-                    }
-                })
+                        
+                        Menu(viewModel.filterMenuLabel) {
+                            Menu(viewModel.categoryMenuLabel) {
+                                ForEach(PBTransactionCategory.allCases, id: \.id) { category in
+                                    Button(category.title, action: { viewModel.category = category })
+                                }
+                            }
+                        }
+                    })
             }
             .onChange(of: networkMonitor.isConnected) { showNetworkAlert = $0 == false}
-            .alert("NetworkError_offline_description".localized(), isPresented: $showNetworkAlert) {
-                Button("TransactionView_Alert_answer".localized(), action: {})
+            .alert(viewModel.networkOfflineLabel, isPresented: $showNetworkAlert) {
+                Button(viewModel.alertAnswerLabel, action: {})
             }
-            .alert("Error".localized(), isPresented: $viewModel.isError, actions: {
-                Button("TransactionView_Alert_answer".localized(), action: {})
+            .alert(viewModel.errorLabel, isPresented: $viewModel.isError, actions: {
+                Button(viewModel.alertAnswerLabel, action: {})
             }, message: {
                 Text(viewModel.errorMessage)
             })

@@ -8,7 +8,7 @@
 import Foundation
 
 final class TransactionViewModel: ObservableObject {
-    @Published var transactions: [PBTransaction] = []
+    @Published private var transactions: [PBTransaction] = []
     @Published var category: PBTransactionCategory = .all
     
     @Published var isLoading = false
@@ -30,8 +30,36 @@ final class TransactionViewModel: ObservableObject {
         }
     }
     
-    var summaryValue: Int {
-        return transactionsToShow.reduce(0) { $0 + $1.amount}
+    var summaryLabel: String {
+        return "TransactionView_Text_summary".localized() + ": " + String(transactionsToShow.reduce(0) { $0 + $1.amount})
+    }
+    
+    var titleLabel: String {
+        return "TransactionView_title".localized()
+    }
+    
+    var fetchButtonTitleLabel: String {
+        return "TransactionView_Button_fetch_title".localized()
+    }
+    
+    var filterMenuLabel: String {
+        return "TransactionView_Menu_filter_title".localized()
+    }
+    
+    var categoryMenuLabel: String {
+        return "TransactionView_Menu_category_title".localized()
+    }
+    
+    var alertAnswerLabel: String {
+        return "TransactionView_Alert_answer".localized()
+    }
+    
+    var networkOfflineLabel: String {
+        return "NetworkError_offline_description".localized()
+    }
+    
+    var errorLabel: String {
+        return "Error".localized()
     }
     
     init(networkService: NetworkServiceProtocol) {

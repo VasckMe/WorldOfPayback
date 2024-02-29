@@ -40,7 +40,7 @@ final class PersistenceStorageService: PersistenceStorageServiceProtocol {
     func getTransactions() async -> [PBTransaction] {
         await persistenceManager.context.perform { [weak self] in
             guard let self = self else {
-                return
+                return []
             }
             
             do {

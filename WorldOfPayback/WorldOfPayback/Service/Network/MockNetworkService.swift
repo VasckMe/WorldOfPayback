@@ -8,9 +8,10 @@
 import Foundation
 
 final class MockNetworkService {
-    private let persistenceSerivce: PersistenceStorageServiceProtocol
-    init() {
-        self.persistenceSerivce = PersistenceStorageService(persistenceManager: PersistenceStorageManager())
+    private let persistenceService: PersistenceStorageServiceProtocol
+    
+    init(persistenceService: PersistenceStorageServiceProtocol) {
+        self.persistenceService = persistenceService
     }
 }
 
@@ -18,31 +19,37 @@ final class MockNetworkService {
 
 extension MockNetworkService: NetworkServiceProtocol {
     func fetchTransactions() async throws -> [PBTransaction] {
+        await Task(priority: .medium) {
+          await withUnsafeContinuation { continuation in
+            Thread.sleep(forTimeInterval: 1)
+            continuation.resume()
+          }
+        }.value
         
-        let list = PBTransactionResponse.mockedResponse()
-
-        let transactions = list.compactMap { PBTransaction(response: $0) }
-        
-//        await persistenceSerivce.save(transactions: transactions)
-//        return persistenceSerivce.getTransactions()
-        return transactions
+        do {
+            let list = try PBTransactionResponse.mockedResponse()
+            let transactions = list.compactMap { PBTransaction(response: $0) }
+            
+            await persistenceService.save(transactions: transactions)
+            
+            return transactions
+        } catch {
+            return try await handle(error: error)
+        }
     }
 }
 
-extension PBTransactionResponse {
-    static func mockedResponse() -> [PBTransactionResponse] {
-        do {
-            guard
-                let bundlePath = Bundle.main.path(forResource: "PBTransactions", ofType: "json"),
-                let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8)
-            else {
-                return []
-            }
-            
-            let response = try JSONDecoder().decode(PBTransactionsResponse.self, from: jsonData)
-            return response.items
-        } catch {
-            return []
+private extension MockNetworkService {
+    func handle(error: Error) async throws -> [PBTransaction] {
+        guard let networkError = error as? NetworkError else {
+            throw error
+        }
+        
+        switch networkError {
+        case .offline:
+            return await persistenceService.getTransactions()
+        case .badResponse, .badParsing, .unknown:
+            throw error
         }
     }
 }

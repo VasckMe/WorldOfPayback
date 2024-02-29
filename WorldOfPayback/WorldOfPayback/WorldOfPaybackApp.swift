@@ -16,9 +16,11 @@ struct WorldOfPaybackApp: App {
         WindowGroup {
             TransactionView(
                 viewModel: TransactionViewModel(
-                    networkService: MockNetworkService()
-//                        executor: HTTPRequestExecutor(builder: HTTPRequestBuilder())
-//                    )
+                    networkService: MockNetworkService(
+                        persistenceService: PersistenceStorageService(
+                            persistenceManager: PersistenceStorageManager()
+                        )
+                    )
                 )
             )
             .environmentObject(networkMonitor)

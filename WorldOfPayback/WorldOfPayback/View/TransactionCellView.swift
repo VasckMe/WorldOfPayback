@@ -15,9 +15,9 @@ struct TransactionCellView: View {
         NavigationLink(destination: TransactionDetailedView(transaction: transaction)) {
             HStack {
                 VStack(alignment: .leading, spacing: 5) {
-                    Text("\(transaction.partnerDisplayName)")
+                    Text(transaction.partnerDisplayName)
                         .bold()
-                    Text("\(transaction.description ?? "-")")
+                    Text(transaction.description ?? "-")
                     Text(transaction.timeString)
                         .underline(color: .black)
                 }

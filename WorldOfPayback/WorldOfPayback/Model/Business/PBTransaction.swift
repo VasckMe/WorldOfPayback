@@ -30,7 +30,6 @@ struct PBTransaction: Identifiable, Hashable {
 
 extension PBTransaction {
     init?(response: PBTransactionResponse) {
-        
         let formatter = HelperUtilities.dateFormatter
         formatter.dateFormat = DateFormat.long.rawValue
         
