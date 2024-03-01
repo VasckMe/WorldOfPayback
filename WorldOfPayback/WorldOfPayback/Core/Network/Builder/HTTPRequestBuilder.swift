@@ -8,11 +8,11 @@
 import Foundation
 
 final class HTTPRequestBuilder: HTTPRequestBuilderProtocol {
-    private let baseURLString = "http://"
-    
-    // TODO: Base URL
-    //    * Prod https://api.payback.com"
-    //    * Test https://api-test.payback.com"
+    #if PROD || RELEASE
+    private let baseURLString = "https://api.payback.com"
+    #elseif DEBUG
+    private let baseURLString = "https://api-test.payback.com"
+    #endif
     
     func build(httpRequest: HTTPRequest) throws -> URLRequest {
         do {
