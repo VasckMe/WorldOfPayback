@@ -16,11 +16,7 @@ struct WorldOfPaybackApp: App {
         WindowGroup {
             TransactionView(
                 viewModel: TransactionViewModel(
-                    networkService: MockNetworkService(
-                        persistenceService: PersistenceStorageService(
-                            persistenceManager: PersistenceStorageManager()
-                        )
-                    )
+                    networkService: ServiceAssembly.shared.mockNetworkService
                 )
             )
             .environmentObject(networkMonitor)

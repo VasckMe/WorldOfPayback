@@ -17,6 +17,8 @@
 		184DAD692B90A8B10022A6B9 /* PersistenceStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD682B90A8B10022A6B9 /* PersistenceStorageService.swift */; };
 		184DAD6B2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD6A2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift */; };
 		18AB08C42B9103D2008C26FF /* PersistenceStorageManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB08C32B9103D2008C26FF /* PersistenceStorageManagerProtocol.swift */; };
+		18AB08CC2B920C76008C26FF /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB08CB2B920C76008C26FF /* ServiceAssembly.swift */; };
+		18AB08D02B920DD9008C26FF /* NetworkAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB08CF2B920DD9008C26FF /* NetworkAssembly.swift */; };
 		18F6267E2B8E114200662542 /* WorldOfPaybackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */; };
 		18F626802B8E114200662542 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6267F2B8E114200662542 /* TransactionView.swift */; };
 		18F626822B8E114400662542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F626812B8E114400662542 /* Assets.xcassets */; };
@@ -81,6 +83,8 @@
 		184DAD682B90A8B10022A6B9 /* PersistenceStorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorageService.swift; sourceTree = "<group>"; };
 		184DAD6A2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorageServiceProtocol.swift; sourceTree = "<group>"; };
 		18AB08C32B9103D2008C26FF /* PersistenceStorageManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorageManagerProtocol.swift; sourceTree = "<group>"; };
+		18AB08CB2B920C76008C26FF /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
+		18AB08CF2B920DD9008C26FF /* NetworkAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAssembly.swift; sourceTree = "<group>"; };
 		18F6267A2B8E114200662542 /* WorldOfPayback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldOfPayback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPaybackApp.swift; sourceTree = "<group>"; };
 		18F6267F2B8E114200662542 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
@@ -247,11 +251,11 @@
 				18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */,
 				18F626B32B8E2C3E00662542 /* Core */,
 				18F626A72B8E1B4D00662542 /* Model */,
-				18F626832B8E114400662542 /* Preview Content */,
-				184DAD4A2B90897F0022A6B9 /* Resources */,
 				18F626CE2B8E4C6400662542 /* Service */,
 				18F626AA2B8E28F200662542 /* View */,
 				18F626B02B8E2C0200662542 /* ViewModel */,
+				18F626832B8E114400662542 /* Preview Content */,
+				184DAD4A2B90897F0022A6B9 /* Resources */,
 			);
 			path = WorldOfPayback;
 			sourceTree = "<group>";
@@ -322,6 +326,7 @@
 		18F626B82B8E2ECE00662542 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				18AB08CF2B920DD9008C26FF /* NetworkAssembly.swift */,
 				184DAD582B909AC00022A6B9 /* Monitor */,
 				18F626BB2B8E2EDD00662542 /* Component */,
 				18F626BA2B8E2ED800662542 /* Builder */,
@@ -365,6 +370,7 @@
 		18F626CE2B8E4C6400662542 /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				18AB08CB2B920C76008C26FF /* ServiceAssembly.swift */,
 				184DAD672B90A89F0022A6B9 /* Core Data */,
 				184DAD662B90A89A0022A6B9 /* Network */,
 			);
@@ -527,6 +533,7 @@
 				184DAD492B9082AD0022A6B9 /* PBTransactionCategory.swift in Sources */,
 				18F626D22B8E4D6100662542 /* PBTransactionResponse.swift in Sources */,
 				18F626AE2B8E293200662542 /* TransactionDetailedView.swift in Sources */,
+				18AB08D02B920DD9008C26FF /* NetworkAssembly.swift in Sources */,
 				184DAD692B90A8B10022A6B9 /* PersistenceStorageService.swift in Sources */,
 				18F626C12B8E32DA00662542 /* HTTPMethod.swift in Sources */,
 				18F626802B8E114200662542 /* TransactionView.swift in Sources */,
@@ -540,6 +547,7 @@
 				18F626D62B8E4EC700662542 /* PBTransactionAliasResponse.swift in Sources */,
 				18F626BF2B8E326E00662542 /* HTTPPath.swift in Sources */,
 				18F626CD2B8E3C9A00662542 /* HTTPRequestExecutorProtocol.swift in Sources */,
+				18AB08CC2B920C76008C26FF /* ServiceAssembly.swift in Sources */,
 				18F626BD2B8E2F0500662542 /* HTTPRequestModel.swift in Sources */,
 				184DAD652B90A7D40022A6B9 /* PersistenceStorageManagerError.swift in Sources */,
 				18F626D82B8E4ED000662542 /* PBTransactionDetailResponse.swift in Sources */,

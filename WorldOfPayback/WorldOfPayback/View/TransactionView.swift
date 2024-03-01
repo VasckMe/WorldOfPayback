@@ -25,26 +25,34 @@ struct TransactionView: View {
                     .navigationTitle(viewModel.titleLabel)
                 
                     .toolbar(content: {
-                        if viewModel.isLoading {
-                            ProgressView()
-                        } else {
-                            Button(viewModel.fetchButtonTitleLabel) {
-                                viewModel.fetchTransactions()
+                        ToolbarItem(placement: .navigationBarLeading) {
+                            if !networkMonitor.isConnected {
+                                Text("Offline")
+                                    .bold()
+                                    .foregroundColor(.red)
                             }
                         }
                         
-                        Menu(viewModel.filterMenuLabel) {
-                            Menu(viewModel.categoryMenuLabel) {
-                                ForEach(PBTransactionCategory.allCases, id: \.id) { category in
-                                    Button(category.title, action: { viewModel.category = category })
+                        ToolbarItem {
+                            if viewModel.isLoading {
+                                ProgressView()
+                            } else {
+                                Button(viewModel.fetchButtonTitleLabel) {
+                                    viewModel.fetchTransactions()
+                                }
+                            }
+                        }
+                        
+                        ToolbarItem {
+                            Menu(viewModel.filterMenuLabel) {
+                                Menu(viewModel.categoryMenuLabel) {
+                                    ForEach(PBTransactionCategory.allCases, id: \.id) { category in
+                                        Button(category.title, action: { viewModel.category = category })
+                                    }
                                 }
                             }
                         }
                     })
-            }
-            .onChange(of: networkMonitor.isConnected) { showNetworkAlert = $0 == false}
-            .alert(viewModel.networkOfflineLabel, isPresented: $showNetworkAlert) {
-                Button(viewModel.alertAnswerLabel, action: {})
             }
             .alert(viewModel.errorLabel, isPresented: $viewModel.isError, actions: {
                 Button(viewModel.alertAnswerLabel, action: {})

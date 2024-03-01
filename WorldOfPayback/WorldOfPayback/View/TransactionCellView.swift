@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct TransactionCellView: View {
-    
     let transaction: PBTransaction
     
     var body: some View {
@@ -21,6 +20,7 @@ struct TransactionCellView: View {
                     Text(transaction.timeString)
                         .underline(color: .black)
                 }
+                
                 Spacer()
                 
                 Text(transaction.valueString)

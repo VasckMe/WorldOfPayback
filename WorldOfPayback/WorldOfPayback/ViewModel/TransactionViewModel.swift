@@ -8,13 +8,10 @@
 import Foundation
 
 final class TransactionViewModel: ObservableObject {
-    @Published private var transactions: [PBTransaction] = []
     @Published var category: PBTransactionCategory = .all
-    
     @Published var isLoading = false
     @Published var isError = false
-        
-    private let networkService: NetworkServiceProtocol
+    @Published private var transactions: [PBTransaction] = []
     
     var errorMessage = ""
     
@@ -61,6 +58,8 @@ final class TransactionViewModel: ObservableObject {
     var errorLabel: String {
         return "Error".localized()
     }
+    
+    private let networkService: NetworkServiceProtocol
     
     init(networkService: NetworkServiceProtocol) {
         self.networkService = networkService
