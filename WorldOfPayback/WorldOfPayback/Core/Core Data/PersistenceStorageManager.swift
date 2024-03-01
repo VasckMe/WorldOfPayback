@@ -32,16 +32,6 @@ final class PersistenceStorageManager {
 // MARK: - PersistanceStorageManagerProtocol
 
 extension PersistenceStorageManager: PersistenceStorageManagerProtocol {
-    func save() {
-        if context.hasChanges {
-            do {
-                try context.save()
-            } catch {
-                context.rollback()
-            }
-        }
-    }
-    
     func retrieveObjects<T: NSManagedObject>(type: T.Type) throws -> [T] {
         let request = NSFetchRequest<T>(entityName: String(describing: type))
         
@@ -64,6 +54,16 @@ extension PersistenceStorageManager: PersistenceStorageManagerProtocol {
             result.forEach { context.delete($0) }
         } catch {
             throw PersistenceStorageManagerError.fetchError
+        }
+    }
+    
+    func save() {
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                context.rollback()
+            }
         }
     }
 }

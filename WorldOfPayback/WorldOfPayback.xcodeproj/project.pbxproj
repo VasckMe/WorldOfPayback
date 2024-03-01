@@ -147,9 +147,10 @@
 		184DAD4A2B90897F0022A6B9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				18F626E52B8E689100662542 /* PBTransactions.json */,
+				18F626832B8E114400662542 /* Preview Content */,
 				18F626812B8E114400662542 /* Assets.xcassets */,
 				184DAD4F2B9089BC0022A6B9 /* Localizable.strings */,
+				18F626E52B8E689100662542 /* PBTransactions.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -247,7 +248,6 @@
 				18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */,
 				18F626B32B8E2C3E00662542 /* Core */,
 				18F626A72B8E1B4D00662542 /* Model */,
-				18F626832B8E114400662542 /* Preview Content */,
 				184DAD4A2B90897F0022A6B9 /* Resources */,
 				18F626CE2B8E4C6400662542 /* Service */,
 				18F626AA2B8E28F200662542 /* View */,
