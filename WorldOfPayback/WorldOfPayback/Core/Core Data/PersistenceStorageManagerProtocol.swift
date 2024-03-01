@@ -12,5 +12,5 @@ protocol PersistenceStorageManagerProtocol {
     
     func retrieveObjects<T: NSManagedObject>(type: T.Type) throws -> [T]
     func deleteObjects<T: NSManagedObject>(type: T.Type, predicate: NSPredicate?) throws
-    func save()
+    func save() throws
 }

@@ -14,13 +14,13 @@ final class PersistenceStorageService: PersistenceStorageServiceProtocol {
         self.persistenceManager = persistenceManager
     }
     
-    func save(transactions: [PBTransaction]) async {
-        await persistenceManager.context.perform { [weak self] in
+    func save(transactions: [PBTransaction]) async throws {
+        try await persistenceManager.context.perform { [weak self] in
             guard let self = self else {
                 return
             }
             
-            try? self.persistenceManager.deleteObjects(type: Transaction.self, predicate: nil)
+            try self.persistenceManager.deleteObjects(type: Transaction.self, predicate: nil)
             
             transactions.forEach {
                 let transactionModel = Transaction(context: self.persistenceManager.context)
@@ -33,12 +33,12 @@ final class PersistenceStorageService: PersistenceStorageServiceProtocol {
                 transactionModel.currency = $0.currency
             }
             
-            self.persistenceManager.save()
+            try self.persistenceManager.save()
         }
     }
     
-    func getTransactions() async -> [PBTransaction] {
-        await persistenceManager.context.perform { [weak self] in
+    func getTransactions() async throws -> [PBTransaction] {
+        try await persistenceManager.context.perform { [weak self] in
             guard let self = self else {
                 return []
             }
@@ -47,7 +47,7 @@ final class PersistenceStorageService: PersistenceStorageServiceProtocol {
                 let transactions = try self.persistenceManager.retrieveObjects(type: Transaction.self)
                 return transactions.compactMap { PBTransaction(model: $0) }
             } catch {
-                return []
+                throw error
             }
         }
     }

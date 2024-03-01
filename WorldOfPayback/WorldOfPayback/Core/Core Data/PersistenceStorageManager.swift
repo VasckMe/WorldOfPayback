@@ -9,13 +9,12 @@ import CoreData
 
 final class PersistenceStorageManager {
     static let shared: PersistenceStorageManagerProtocol = PersistenceStorageManager()
-
-    private let containerName = "Transaction"
     
     private(set) lazy var context: NSManagedObjectContext = {
         persistentContainer.newBackgroundContext()
     }()
-
+    
+    private let containerName = "Transaction"
     private let persistentContainer: NSPersistentContainer
     
     init() {
@@ -39,9 +38,8 @@ extension PersistenceStorageManager: PersistenceStorageManagerProtocol {
             let result = try context.fetch(request)
             return result
         } catch {
-            throw PersistenceStorageManagerError.fetchError
+            throw PersistenceStorageManagerError.invalidContextFetch
         }
-        
     }
     
     func deleteObjects<T: NSManagedObject>(type: T.Type, predicate: NSPredicate? = nil) throws {
@@ -53,16 +51,17 @@ extension PersistenceStorageManager: PersistenceStorageManagerProtocol {
             
             result.forEach { context.delete($0) }
         } catch {
-            throw PersistenceStorageManagerError.fetchError
+            throw PersistenceStorageManagerError.invalidContextFetch
         }
     }
     
-    func save() {
+    func save() throws {
         if context.hasChanges {
             do {
                 try context.save()
             } catch {
                 context.rollback()
+                throw PersistenceStorageManagerError.invalidContextSave
             }
         }
     }

@@ -6,5 +6,7 @@
 //
 
 enum PersistenceStorageManagerError: Error {
-    case fetchError
+    case invalidContextFetch
+    case invalidContextSave
+    case unknown
 }

@@ -42,7 +42,7 @@ private extension NetworkService {
         
         switch networkError {
         case .offline:
-            return await persistenceService.getTransactions()
+            return try await persistenceService.getTransactions()
         case .badResponse, .badParsing, .unknown:
             throw error
         }

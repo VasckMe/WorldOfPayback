@@ -6,6 +6,6 @@
 //
 
 protocol PersistenceStorageServiceProtocol {
-    func save(transactions: [PBTransaction]) async
-    func getTransactions() async -> [PBTransaction]
+    func save(transactions: [PBTransaction]) async throws
+    func getTransactions() async throws -> [PBTransaction]
 }

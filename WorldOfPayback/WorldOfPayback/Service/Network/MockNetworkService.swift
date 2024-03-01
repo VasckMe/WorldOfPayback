@@ -30,7 +30,7 @@ extension MockNetworkService: NetworkServiceProtocol {
             let list = try PBTransactionResponse.mockedResponse()
             let transactions = list.compactMap { PBTransaction(response: $0) }
             
-            await persistenceService.save(transactions: transactions)
+            try await persistenceService.save(transactions: transactions)
             
             return transactions
         } catch {
@@ -38,6 +38,8 @@ extension MockNetworkService: NetworkServiceProtocol {
         }
     }
 }
+
+// MARK: - Private
 
 private extension MockNetworkService {
     func handle(error: Error) async throws -> [PBTransaction] {
@@ -47,7 +49,7 @@ private extension MockNetworkService {
         
         switch networkError {
         case .offline:
-            return await persistenceService.getTransactions()
+            return try await persistenceService.getTransactions()
         case .badResponse, .badParsing, .unknown:
             throw error
         }
