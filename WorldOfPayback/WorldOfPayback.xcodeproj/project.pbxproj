@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18156DF52B94F77900752C82 /* NetworkServiceChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18156DF42B94F77900752C82 /* NetworkServiceChecker.swift */; };
+		18156DF72B94F90B00752C82 /* HTTPRequestExecutorChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18156DF62B94F90B00752C82 /* HTTPRequestExecutorChecker.swift */; };
+		18156DFB2B950BF400752C82 /* HTTPRequestExecutorTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18156DFA2B950BF400752C82 /* HTTPRequestExecutorTest.swift */; };
+		18156DFD2B95130400752C82 /* NetworkServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18156DFC2B95130400752C82 /* NetworkServiceTest.swift */; };
+		18156E002B95188900752C82 /* PersistenceStorageServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18156DFF2B95188900752C82 /* PersistenceStorageServiceTest.swift */; };
+		18156E022B95189700752C82 /* PersistenceStorageServiceChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18156E012B95189700752C82 /* PersistenceStorageServiceChecker.swift */; };
 		184DAD492B9082AD0022A6B9 /* PBTransactionCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD482B9082AD0022A6B9 /* PBTransactionCategory.swift */; };
 		184DAD4D2B9089BC0022A6B9 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 184DAD4F2B9089BC0022A6B9 /* Localizable.strings */; };
 		184DAD572B908E030022A6B9 /* String+Localizable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184DAD562B908E030022A6B9 /* String+Localizable.swift */; };
@@ -72,6 +78,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		18156DF42B94F77900752C82 /* NetworkServiceChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceChecker.swift; sourceTree = "<group>"; };
+		18156DF62B94F90B00752C82 /* HTTPRequestExecutorChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestExecutorChecker.swift; sourceTree = "<group>"; };
+		18156DFA2B950BF400752C82 /* HTTPRequestExecutorTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequestExecutorTest.swift; sourceTree = "<group>"; };
+		18156DFC2B95130400752C82 /* NetworkServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkServiceTest.swift; sourceTree = "<group>"; };
+		18156DFF2B95188900752C82 /* PersistenceStorageServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorageServiceTest.swift; sourceTree = "<group>"; };
+		18156E012B95189700752C82 /* PersistenceStorageServiceChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorageServiceChecker.swift; sourceTree = "<group>"; };
 		184DAD482B9082AD0022A6B9 /* PBTransactionCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PBTransactionCategory.swift; sourceTree = "<group>"; };
 		184DAD4E2B9089BC0022A6B9 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		184DAD502B9089E10022A6B9 /* pl */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = pl; path = pl.lproj/Localizable.strings; sourceTree = "<group>"; };
@@ -148,6 +160,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18156DF82B950BC900752C82 /* NetworkService */ = {
+			isa = PBXGroup;
+			children = (
+				18156DF42B94F77900752C82 /* NetworkServiceChecker.swift */,
+				18156DFC2B95130400752C82 /* NetworkServiceTest.swift */,
+			);
+			path = NetworkService;
+			sourceTree = "<group>";
+		};
+		18156DF92B950BD000752C82 /* HTTPRequestExecutor */ = {
+			isa = PBXGroup;
+			children = (
+				18156DF62B94F90B00752C82 /* HTTPRequestExecutorChecker.swift */,
+				18156DFA2B950BF400752C82 /* HTTPRequestExecutorTest.swift */,
+			);
+			path = HTTPRequestExecutor;
+			sourceTree = "<group>";
+		};
+		18156DFE2B95183700752C82 /* PersistenceStorageManager */ = {
+			isa = PBXGroup;
+			children = (
+				18156DFF2B95188900752C82 /* PersistenceStorageServiceTest.swift */,
+				18156E012B95189700752C82 /* PersistenceStorageServiceChecker.swift */,
+			);
+			path = PersistenceStorageManager;
+			sourceTree = "<group>";
+		};
 		184DAD4A2B90897F0022A6B9 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -209,8 +248,8 @@
 		184DAD662B90A89A0022A6B9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				18F626CF2B8E4C7000662542 /* NetworkService.swift */,
 				18F626E02B8E551800662542 /* NetworkServiceProtocol.swift */,
+				18F626CF2B8E4C7000662542 /* NetworkService.swift */,
 				18F626E22B8E681300662542 /* MockNetworkService.swift */,
 			);
 			path = Network;
@@ -219,8 +258,8 @@
 		184DAD672B90A89F0022A6B9 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				184DAD682B90A8B10022A6B9 /* PersistenceStorageService.swift */,
 				184DAD6A2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift */,
+				184DAD682B90A8B10022A6B9 /* PersistenceStorageService.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -271,6 +310,9 @@
 		18F6268D2B8E114400662542 /* WorldOfPaybackTests */ = {
 			isa = PBXGroup;
 			children = (
+				18156DFE2B95183700752C82 /* PersistenceStorageManager */,
+				18156DF92B950BD000752C82 /* HTTPRequestExecutor */,
+				18156DF82B950BC900752C82 /* NetworkService */,
 				18F6268E2B8E114400662542 /* WorldOfPaybackTests.swift */,
 			);
 			path = WorldOfPaybackTests;
@@ -564,7 +606,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18156DFD2B95130400752C82 /* NetworkServiceTest.swift in Sources */,
+				18156E022B95189700752C82 /* PersistenceStorageServiceChecker.swift in Sources */,
+				18156E002B95188900752C82 /* PersistenceStorageServiceTest.swift in Sources */,
+				18156DFB2B950BF400752C82 /* HTTPRequestExecutorTest.swift in Sources */,
 				18F6268F2B8E114400662542 /* WorldOfPaybackTests.swift in Sources */,
+				18156DF52B94F77900752C82 /* NetworkServiceChecker.swift in Sources */,
+				18156DF72B94F90B00752C82 /* HTTPRequestExecutorChecker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

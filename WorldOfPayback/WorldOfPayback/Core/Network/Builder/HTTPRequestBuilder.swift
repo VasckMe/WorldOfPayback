@@ -53,7 +53,7 @@ private extension HTTPRequestBuilder {
         return url
     }
     
-    private func buildQueryParameters(request: HTTPRequestModelProtocol) -> [URLQueryItem]? {
+    func buildQueryParameters(request: HTTPRequestModelProtocol) -> [URLQueryItem]? {
         guard let parameters = request.query else {
             return nil
         }
@@ -61,7 +61,7 @@ private extension HTTPRequestBuilder {
         return parameters.map { URLQueryItem(name: $0.key, value: $0.value) }
     }
     
-    private func buildURLRequest(url: URL, request: HTTPRequestModelProtocol) throws -> URLRequest {
+    func buildURLRequest(url: URL, request: HTTPRequestModelProtocol) throws -> URLRequest {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = request.method.rawValue
         
@@ -73,7 +73,7 @@ private extension HTTPRequestBuilder {
         return urlRequest
     }
     
-    private func buildBody(request: HTTPRequestModelProtocol) throws -> Data? {
+    func buildBody(request: HTTPRequestModelProtocol) throws -> Data? {
         guard let body = request.body else {
             return nil
         }
@@ -85,7 +85,7 @@ private extension HTTPRequestBuilder {
         }
     }
     
-    private func addHeaders(from request: HTTPRequestModelProtocol, to urlRequest: URLRequest) -> URLRequest {
+    func addHeaders(from request: HTTPRequestModelProtocol, to urlRequest: URLRequest) -> URLRequest {
         var headers: [String: String] = [:]
         
         if let header = request.header {

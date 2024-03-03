@@ -27,6 +27,10 @@ final class TransactionViewModel: ObservableObject {
         }
     }
     
+    var offlineLabel: String {
+        return "TransactionView_Text_offline".localized()
+    }
+    
     var summaryLabel: String {
         return "TransactionView_Text_summary".localized() + ": " + String(transactionsToShow.reduce(0) { $0 + $1.amount})
     }

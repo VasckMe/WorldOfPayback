@@ -1,5 +1,6 @@
 "TransactionView_title" = "Transaction List";
 "TransactionView_Text_summary" = "Sum";
+"TransactionView_Text_offline" = "Offline";
 "TransactionView_Button_fetch_title" = "Fetch";
 "TransactionView_Menu_filter_title" = "Filter";
 "TransactionView_Menu_category_title" = "Category";

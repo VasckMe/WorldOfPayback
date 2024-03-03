@@ -13,21 +13,3 @@ struct PBTransactionResponse: Decodable {
     let category: Int
     let transactionDetail: PBTransactionDetailResponse
 }
-
-extension PBTransactionResponse {
-    static func mockedResponse() throws -> [PBTransactionResponse] {
-        do {
-            guard
-                let bundlePath = Bundle.main.path(forResource: "PBTransactions", ofType: "json"),
-                let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8)
-            else {
-                throw NetworkError.unknown
-            }
-            
-            let response = try JSONDecoder().decode(PBTransactionsResponse.self, from: jsonData)
-            return response.items
-        } catch {
-            throw NetworkError.badParsing
-        }
-    }
-}

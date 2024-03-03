@@ -27,9 +27,15 @@ extension MockNetworkService: NetworkServiceProtocol {
         }.value
         
         do {
-            let list = try PBTransactionResponse.mockedResponse()
-            let transactions = list.compactMap { PBTransaction(response: $0) }
+            guard
+                let bundlePath = Bundle.main.path(forResource: "PBTransactions", ofType: "json"),
+                let jsonData = try String(contentsOfFile: bundlePath).data(using: .utf8)
+            else {
+                throw NetworkError.unknown
+            }
             
+            let response = try JSONDecoder().decode(PBTransactionsResponse.self, from: jsonData)
+            let transactions = response.items.compactMap { PBTransaction(response: $0) }
             try await persistenceService.save(transactions: transactions)
             
             return transactions

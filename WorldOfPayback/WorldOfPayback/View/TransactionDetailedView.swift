@@ -12,8 +12,8 @@ struct TransactionDetailedView: View {
     
     var body: some View {
         VStack {
-            Text("\(transaction.partnerDisplayName)")
-            Text("\(transaction.description ?? "-")")
+            Text(transaction.partnerDisplayName)
+            Text(transaction.description ?? "-")
         }
     }
 }

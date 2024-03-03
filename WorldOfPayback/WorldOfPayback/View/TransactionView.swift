@@ -27,7 +27,7 @@ struct TransactionView: View {
                     .toolbar(content: {
                         ToolbarItem(placement: .navigationBarLeading) {
                             if !networkMonitor.isConnected {
-                                Text("Offline")
+                                Text(viewModel.offlineLabel)
                                     .bold()
                                     .foregroundColor(.red)
                             }
@@ -63,8 +63,13 @@ struct TransactionView: View {
     }
 }
 
-//struct ContentView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        TransactionView()
-//    }
-//}
+struct ContentView_Previews: PreviewProvider {
+    static var previews: some View {
+        TransactionView(
+            viewModel: TransactionViewModel(
+                networkService: ServiceAssembly.shared.mockNetworkService
+            )
+        )
+        .environmentObject(NetworkMonitor())
+    }
+}
