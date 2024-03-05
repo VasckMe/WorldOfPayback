@@ -189,8 +189,8 @@
 		18156DFE2B95183700752C82 /* PersistenceStorageManager */ = {
 			isa = PBXGroup;
 			children = (
-				18156DFF2B95188900752C82 /* PersistenceStorageServiceTest.swift */,
 				18156E012B95189700752C82 /* PersistenceStorageServiceChecker.swift */,
+				18156DFF2B95188900752C82 /* PersistenceStorageServiceTest.swift */,
 			);
 			path = PersistenceStorageManager;
 			sourceTree = "<group>";
@@ -224,10 +224,10 @@
 		184DAD5C2B90A3C30022A6B9 /* Backend */ = {
 			isa = PBXGroup;
 			children = (
-				18F626D12B8E4D6100662542 /* PBTransactionResponse.swift */,
-				18F626D32B8E4D9700662542 /* PBTransactionsResponse.swift */,
 				18F626D52B8E4EC700662542 /* PBTransactionAliasResponse.swift */,
 				18F626D72B8E4ED000662542 /* PBTransactionDetailResponse.swift */,
+				18F626D12B8E4D6100662542 /* PBTransactionResponse.swift */,
+				18F626D32B8E4D9700662542 /* PBTransactionsResponse.swift */,
 				18F626D92B8E4EDB00662542 /* PBTransactionValueResponse.swift */,
 			);
 			path = Backend;
@@ -256,9 +256,9 @@
 		184DAD662B90A89A0022A6B9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				18F626E02B8E551800662542 /* NetworkServiceProtocol.swift */,
-				18F626CF2B8E4C7000662542 /* NetworkService.swift */,
 				18F626E22B8E681300662542 /* MockNetworkService.swift */,
+				18F626CF2B8E4C7000662542 /* NetworkService.swift */,
+				18F626E02B8E551800662542 /* NetworkServiceProtocol.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -266,8 +266,8 @@
 		184DAD672B90A89F0022A6B9 /* Core Data */ = {
 			isa = PBXGroup;
 			children = (
-				184DAD6A2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift */,
 				184DAD682B90A8B10022A6B9 /* PersistenceStorageService.swift */,
+				184DAD6A2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift */,
 			);
 			path = "Core Data";
 			sourceTree = "<group>";
@@ -292,10 +292,18 @@
 		18C566CD2B9788520090B797 /* TransactionView */ = {
 			isa = PBXGroup;
 			children = (
-				18C566CB2B97882F0090B797 /* TransactionViewDataProviderProtocol.swift */,
 				18C566C72B977F920090B797 /* TransactionViewDataProvider.swift */,
+				18C566CB2B97882F0090B797 /* TransactionViewDataProviderProtocol.swift */,
 			);
 			path = TransactionView;
+			sourceTree = "<group>";
+		};
+		18C566CF2B9792AD0090B797 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 		18F626712B8E114200662542 = {
@@ -321,7 +329,7 @@
 		18F6267C2B8E114200662542 /* WorldOfPayback */ = {
 			isa = PBXGroup;
 			children = (
-				18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */,
+				18C566CF2B9792AD0090B797 /* App */,
 				18F626B32B8E2C3E00662542 /* Core */,
 				18F626A72B8E1B4D00662542 /* Model */,
 				18F626CE2B8E4C6400662542 /* Service */,
@@ -405,10 +413,10 @@
 			isa = PBXGroup;
 			children = (
 				18AB08CF2B920DD9008C26FF /* NetworkAssembly.swift */,
-				184DAD582B909AC00022A6B9 /* Monitor */,
-				18F626BB2B8E2EDD00662542 /* Component */,
 				18F626BA2B8E2ED800662542 /* Builder */,
+				18F626BB2B8E2EDD00662542 /* Component */,
 				18F626B92B8E2ED300662542 /* Executor */,
+				184DAD582B909AC00022A6B9 /* Monitor */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -458,8 +466,8 @@
 		18F626DB2B8E535300662542 /* HelperUtils */ = {
 			isa = PBXGroup;
 			children = (
-				18F626DC2B8E535F00662542 /* HelperUtilities.swift */,
 				18F626DE2B8E53D400662542 /* DateFormat.swift */,
+				18F626DC2B8E535F00662542 /* HelperUtilities.swift */,
 			);
 			path = HelperUtils;
 			sourceTree = "<group>";
