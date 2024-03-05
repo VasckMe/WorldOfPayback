@@ -50,6 +50,8 @@ extension PersistenceStorageManager: PersistenceStorageManagerProtocol {
             let result = try context.fetch(request)
             
             result.forEach { context.delete($0) }
+            
+            try save()
         } catch {
             throw PersistenceStorageManagerError.invalidContextFetch
         }

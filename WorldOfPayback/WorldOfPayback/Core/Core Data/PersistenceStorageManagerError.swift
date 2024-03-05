@@ -8,5 +8,6 @@
 enum PersistenceStorageManagerError: Error {
     case invalidContextFetch
     case invalidContextSave
+    case invalidFetchedModelForCasting
     case unknown
 }

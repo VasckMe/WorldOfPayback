@@ -20,20 +20,37 @@ final class PersistenceStorageService: PersistenceStorageServiceProtocol {
                 return
             }
             
-            try self.persistenceManager.deleteObjects(type: Transaction.self, predicate: nil)
-            
-            transactions.forEach {
-                let transactionModel = Transaction(context: self.persistenceManager.context)
-                transactionModel.id = Int64($0.id)
-                transactionModel.partnerDisplayName = $0.partnerDisplayName
-                transactionModel.category = Int64($0.category)
-                transactionModel.transactionDescription = $0.description
-                transactionModel.bookingDate = $0.bookingDate
-                transactionModel.amount = Int64($0.amount)
-                transactionModel.currency = $0.currency
+            do {
+                let savedTransactions = try self.persistenceManager.retrieveObjects(type: Transaction.self)
+                
+                try transactions.forEach {
+                    let fetchID = $0.id
+                    
+                    guard let saveTransaction = savedTransactions.first(where: { $0.id == fetchID }) else {
+                        // save new fetched transaction, if there is no similar in CD yet
+                        self.save(transaction: $0)
+                        return try self.persistenceManager.save()
+                    }
+                    
+                    guard let businessSaveTransaction = PBTransaction(model: saveTransaction) else {
+                        throw PersistenceStorageManagerError.invalidFetchedModelForCasting
+                    }
+                    
+                    guard businessSaveTransaction != $0 else {
+                        return
+                    }
+                    
+                    try self.persistenceManager.deleteObjects(
+                        type: Transaction.self,
+                        predicate: NSPredicate(format: "id == %@", "\(businessSaveTransaction.id)")
+                    )
+                    
+                    self.save(transaction: $0)
+                    try self.persistenceManager.save()
+                }
+            } catch {
+                throw error
             }
-            
-            try self.persistenceManager.save()
         }
     }
     
@@ -50,5 +67,18 @@ final class PersistenceStorageService: PersistenceStorageServiceProtocol {
                 throw error
             }
         }
+    }
+}
+
+private extension PersistenceStorageService {
+    func save(transaction: PBTransaction) {
+        let transactionModel = Transaction(context: self.persistenceManager.context)
+        transactionModel.id = Int64(transaction.id)
+        transactionModel.partnerDisplayName = transaction.partnerDisplayName
+        transactionModel.category = Int64(transaction.category)
+        transactionModel.transactionDescription = transaction.description
+        transactionModel.bookingDate = transaction.bookingDate
+        transactionModel.amount = Int64(transaction.amount)
+        transactionModel.currency = transaction.currency
     }
 }

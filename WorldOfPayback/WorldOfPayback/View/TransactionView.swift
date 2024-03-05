@@ -9,56 +9,57 @@ import SwiftUI
 
 struct TransactionView: View {
     @EnvironmentObject var networkMonitor: NetworkMonitor
-    @ObservedObject var viewModel: TransactionViewModel
+    @StateObject var viewModel: TransactionViewModel
     @State var showNetworkAlert = false
     
     var body: some View {
         NavigationView {
             VStack {
-                List(viewModel.transactionsToShow) { transaction in
-                    TransactionCellView(transaction: transaction)
-                }
-                
+                List(viewModel.transactionsToShow) { TransactionCellView(transaction: $0) }
                 Text(viewModel.summaryLabel)
                     .font(.title)
                     .bold()
-                    .navigationTitle(viewModel.titleLabel)
-                
-                    .toolbar(content: {
-                        ToolbarItem(placement: .navigationBarLeading) {
-                            if !networkMonitor.isConnected {
-                                Text(viewModel.offlineLabel)
-                                    .bold()
-                                    .foregroundColor(.red)
-                            }
-                        }
-                        
-                        ToolbarItem {
-                            if viewModel.isLoading {
-                                ProgressView()
-                            } else {
-                                Button(viewModel.fetchButtonTitleLabel) {
-                                    viewModel.fetchTransactions()
-                                }
-                            }
-                        }
-                        
-                        ToolbarItem {
-                            Menu(viewModel.filterMenuLabel) {
-                                Menu(viewModel.categoryMenuLabel) {
-                                    ForEach(PBTransactionCategory.allCases, id: \.id) { category in
-                                        Button(category.title, action: { viewModel.category = category })
-                                    }
-                                }
-                            }
-                        }
-                    })
             }
-            .alert(viewModel.errorLabel, isPresented: $viewModel.isError, actions: {
-                Button(viewModel.alertAnswerLabel, action: {})
-            }, message: {
-                Text(viewModel.errorMessage)
-            })
+            
+            .toolbar {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    if !networkMonitor.isConnected {
+                        Text(viewModel.offlineLabel)
+                            .bold()
+                            .foregroundColor(.red)
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    if viewModel.isLoading {
+                        ProgressView()
+                    } else {
+                        Button(viewModel.fetchButtonTitleLabel) {
+                            viewModel.fetchTransactions()
+                        }
+                    }
+                }
+                
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Menu(viewModel.filterMenuLabel) {
+                        Menu(viewModel.categoryMenuLabel) {
+                            ForEach(PBTransactionCategory.allCases, id: \.id) { category in
+                                Button(category.title, action: { viewModel.category = category })
+                            }
+                        }
+                    }
+                }
+            }
+            
+            .alertWithError(
+                isPresented: $viewModel.isError,
+                message: viewModel.errorMessage,
+                action: viewModel.alertAnswerLabel
+            )
+            .navigationTitle(viewModel.titleLabel)
+        }
+        .onAppear {
+            viewModel.fetchTransactions()
         }
     }
 }
@@ -67,7 +68,8 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         TransactionView(
             viewModel: TransactionViewModel(
-                networkService: ServiceAssembly.shared.mockNetworkService
+                networkService: ServiceAssembly.shared.mockNetworkService,
+                dataProvider: DataProvider.shared.transactionViewDataProvider
             )
         )
         .environmentObject(NetworkMonitor())
