@@ -27,46 +27,12 @@ final class TransactionViewModel: ObservableObject {
         }
     }
     
-    var offlineLabel: String {
-        return "TransactionView_Text_offline".localized()
-    }
-    
-    var summaryLabel: String {
-        return "TransactionView_Text_summary".localized() + ": " + String(transactionsToShow.reduce(0) { $0 + $1.amount})
-    }
-    
-    var titleLabel: String {
-        return "TransactionView_title".localized()
-    }
-    
-    var fetchButtonTitleLabel: String {
-        return "TransactionView_Button_fetch_title".localized()
-    }
-    
-    var filterMenuLabel: String {
-        return "TransactionView_Menu_filter_title".localized()
-    }
-    
-    var categoryMenuLabel: String {
-        return "TransactionView_Menu_category_title".localized()
-    }
-    
-    var alertAnswerLabel: String {
-        return "TransactionView_Alert_answer".localized()
-    }
-    
-    var networkOfflineLabel: String {
-        return "NetworkError_offline_description".localized()
-    }
-    
-    var errorLabel: String {
-        return "Error".localized()
-    }
-    
     private let networkService: NetworkServiceProtocol
+    private let dataProvider: TransactionViewDataProviderProtocol
     
-    init(networkService: NetworkServiceProtocol) {
+    init(networkService: NetworkServiceProtocol, dataProvider: TransactionViewDataProviderProtocol) {
         self.networkService = networkService
+        self.dataProvider = dataProvider
     }
     
     func fetchTransactions() {
@@ -86,5 +52,44 @@ final class TransactionViewModel: ObservableObject {
                 }
             }
         }
+    }
+}
+
+extension TransactionViewModel {
+    var offlineLabel: String {
+        return dataProvider.offlineLabel
+    }
+    
+    var summaryLabel: String {
+        let summary = transactionsToShow.reduce(0) { $0 + $1.amount}
+        return dataProvider.summaryLabel + ": " + String(summary)
+    }
+    
+    var titleLabel: String {
+        return dataProvider.titleLabel
+    }
+    
+    var fetchButtonTitleLabel: String {
+        return dataProvider.fetchButtonTitleLabel
+    }
+    
+    var filterMenuLabel: String {
+        return dataProvider.filterMenuLabel
+    }
+    
+    var categoryMenuLabel: String {
+        return dataProvider.categoryMenuLabel
+    }
+    
+    var alertAnswerLabel: String {
+        return dataProvider.alertAnswerLabel
+    }
+    
+    var networkOfflineLabel: String {
+        return dataProvider.networkOfflineLabel
+    }
+    
+    var errorLabel: String {
+        return dataProvider.errorLabel
     }
 }

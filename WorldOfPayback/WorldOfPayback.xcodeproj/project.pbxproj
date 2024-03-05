@@ -25,6 +25,10 @@
 		18AB08C42B9103D2008C26FF /* PersistenceStorageManagerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB08C32B9103D2008C26FF /* PersistenceStorageManagerProtocol.swift */; };
 		18AB08CC2B920C76008C26FF /* ServiceAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB08CB2B920C76008C26FF /* ServiceAssembly.swift */; };
 		18AB08D02B920DD9008C26FF /* NetworkAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18AB08CF2B920DD9008C26FF /* NetworkAssembly.swift */; };
+		18C566C52B9758990090B797 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C566C42B9758990090B797 /* View.swift */; };
+		18C566C82B977F920090B797 /* TransactionViewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C566C72B977F920090B797 /* TransactionViewDataProvider.swift */; };
+		18C566CA2B9784100090B797 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C566C92B9784100090B797 /* DataProvider.swift */; };
+		18C566CC2B97882F0090B797 /* TransactionViewDataProviderProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C566CB2B97882F0090B797 /* TransactionViewDataProviderProtocol.swift */; };
 		18F6267E2B8E114200662542 /* WorldOfPaybackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */; };
 		18F626802B8E114200662542 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F6267F2B8E114200662542 /* TransactionView.swift */; };
 		18F626822B8E114400662542 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 18F626812B8E114400662542 /* Assets.xcassets */; };
@@ -97,6 +101,10 @@
 		18AB08C32B9103D2008C26FF /* PersistenceStorageManagerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceStorageManagerProtocol.swift; sourceTree = "<group>"; };
 		18AB08CB2B920C76008C26FF /* ServiceAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceAssembly.swift; sourceTree = "<group>"; };
 		18AB08CF2B920DD9008C26FF /* NetworkAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkAssembly.swift; sourceTree = "<group>"; };
+		18C566C42B9758990090B797 /* View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = View.swift; sourceTree = "<group>"; };
+		18C566C72B977F920090B797 /* TransactionViewDataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewDataProvider.swift; sourceTree = "<group>"; };
+		18C566C92B9784100090B797 /* DataProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		18C566CB2B97882F0090B797 /* TransactionViewDataProviderProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewDataProviderProtocol.swift; sourceTree = "<group>"; };
 		18F6267A2B8E114200662542 /* WorldOfPayback.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WorldOfPayback.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		18F6267D2B8E114200662542 /* WorldOfPaybackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WorldOfPaybackApp.swift; sourceTree = "<group>"; };
 		18F6267F2B8E114200662542 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
@@ -264,6 +272,32 @@
 			path = "Core Data";
 			sourceTree = "<group>";
 		};
+		18C566C32B9758870090B797 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				18C566C42B9758990090B797 /* View.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		18C566C62B977F800090B797 /* DataProvider */ = {
+			isa = PBXGroup;
+			children = (
+				18C566C92B9784100090B797 /* DataProvider.swift */,
+				18C566CD2B9788520090B797 /* TransactionView */,
+			);
+			path = DataProvider;
+			sourceTree = "<group>";
+		};
+		18C566CD2B9788520090B797 /* TransactionView */ = {
+			isa = PBXGroup;
+			children = (
+				18C566CB2B97882F0090B797 /* TransactionViewDataProviderProtocol.swift */,
+				18C566C72B977F920090B797 /* TransactionViewDataProvider.swift */,
+			);
+			path = TransactionView;
+			sourceTree = "<group>";
+		};
 		18F626712B8E114200662542 = {
 			isa = PBXGroup;
 			children = (
@@ -291,8 +325,10 @@
 				18F626B32B8E2C3E00662542 /* Core */,
 				18F626A72B8E1B4D00662542 /* Model */,
 				18F626CE2B8E4C6400662542 /* Service */,
+				18C566C62B977F800090B797 /* DataProvider */,
 				18F626AA2B8E28F200662542 /* View */,
 				18F626B02B8E2C0200662542 /* ViewModel */,
+				18C566C32B9758870090B797 /* Extension */,
 				18F626832B8E114400662542 /* Preview Content */,
 				184DAD4A2B90897F0022A6B9 /* Resources */,
 			);
@@ -579,14 +615,17 @@
 				184DAD692B90A8B10022A6B9 /* PersistenceStorageService.swift in Sources */,
 				18F626C12B8E32DA00662542 /* HTTPMethod.swift in Sources */,
 				18F626802B8E114200662542 /* TransactionView.swift in Sources */,
+				18C566CA2B9784100090B797 /* DataProvider.swift in Sources */,
 				184DAD632B90A71B0022A6B9 /* PersistenceStorageManager.swift in Sources */,
 				184DAD6B2B90A8C90022A6B9 /* PersistenceStorageServiceProtocol.swift in Sources */,
 				18F626D42B8E4D9700662542 /* PBTransactionsResponse.swift in Sources */,
 				18F626C92B8E367C00662542 /* HTTPRequestModelProtocol.swift in Sources */,
+				18C566C82B977F920090B797 /* TransactionViewDataProvider.swift in Sources */,
 				18F626B72B8E2C5E00662542 /* HTTPRequestExecutor.swift in Sources */,
 				18F626C32B8E345700662542 /* HTTPRequestBuilderError.swift in Sources */,
 				18F6267E2B8E114200662542 /* WorldOfPaybackApp.swift in Sources */,
 				18F626D62B8E4EC700662542 /* PBTransactionAliasResponse.swift in Sources */,
+				18C566C52B9758990090B797 /* View.swift in Sources */,
 				18F626BF2B8E326E00662542 /* HTTPPath.swift in Sources */,
 				18F626CD2B8E3C9A00662542 /* HTTPRequestExecutorProtocol.swift in Sources */,
 				18AB08CC2B920C76008C26FF /* ServiceAssembly.swift in Sources */,
@@ -596,6 +635,7 @@
 				18F626C72B8E35E000662542 /* HTTPRequest.swift in Sources */,
 				18F626B22B8E2C1200662542 /* TransactionViewModel.swift in Sources */,
 				18F626DF2B8E53D400662542 /* DateFormat.swift in Sources */,
+				18C566CC2B97882F0090B797 /* TransactionViewDataProviderProtocol.swift in Sources */,
 				18F626E12B8E551800662542 /* NetworkServiceProtocol.swift in Sources */,
 				18F626B52B8E2C5300662542 /* HTTPRequestBuilder.swift in Sources */,
 				184DAD572B908E030022A6B9 /* String+Localizable.swift in Sources */,
