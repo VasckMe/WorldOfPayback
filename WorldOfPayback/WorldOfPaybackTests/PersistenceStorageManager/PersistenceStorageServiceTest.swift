@@ -9,7 +9,6 @@ import XCTest
 @testable import WorldOfPayback
 
 final class PersistenceStorageServiceTest: XCTestCase {
-
     private var sut: PersistenceStorageServiceChecker!
         
     override func setUpWithError() throws {
@@ -20,21 +19,24 @@ final class PersistenceStorageServiceTest: XCTestCase {
         sut = nil
     }
 
+    // MARK: - Test methods
+    
     func testSaveSuccess() async throws {
         try await sut.save(transactions: [])
         
+        XCTAssertNil(sut.saveResultError)
         XCTAssertTrue(sut.calledSaveMethod)
         XCTAssertEqual(sut.callSaveMethodCount, 1)
-        XCTAssertNil(sut.saveResultError)
     }
     
     func testSaveFailure() async throws {
         sut.saveResultError = PersistenceStorageManagerError.invalidContextSave
+        
         try await sut.save(transactions: [])
         
+        XCTAssertNotNil(sut.saveResultError)
         XCTAssertTrue(sut.calledSaveMethod)
         XCTAssertEqual(sut.callSaveMethodCount, 1)
-        XCTAssertNotNil(sut.saveResultError)
     }
     
     func testGetTransactionsSuccess() async throws {
@@ -48,7 +50,6 @@ final class PersistenceStorageServiceTest: XCTestCase {
                 amount: 19,
                 currency: "PBP"
             ),
-            
             PBTransaction(
                 id: 2,
                 partnerDisplayName: "Second",
@@ -74,7 +75,6 @@ final class PersistenceStorageServiceTest: XCTestCase {
         
         do {
             let _ = try await sut.getTransactions()
-
         } catch {
             XCTAssertNotNil(error)
             XCTAssertTrue(sut.calledGetTransactionsMethod)

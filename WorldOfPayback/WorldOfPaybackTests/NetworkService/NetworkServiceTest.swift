@@ -29,6 +29,8 @@ final class NetworkServiceTest: XCTestCase {
         sut = nil
     }
     
+    // MARK: - Test methods
+    
     func testFetchTransactionsSuccess() async throws {
         requestExecutorChecker.resultSuccess = mockResponseTransactions
         
@@ -64,17 +66,18 @@ final class NetworkServiceTest: XCTestCase {
         
         
         do {
-            let transactions = try await sut.fetchTransactions()
+            let _ = try await sut.fetchTransactions()
         } catch {
+            XCTAssertNotNil(error)
             XCTAssertTrue(sut.calledMethod)
             XCTAssertEqual(sut.callMethodCount, 1)
             XCTAssertTrue(sut.didGetExecutorResponse)
             XCTAssertFalse(sut.didGetPersistenceResponse)
-            XCTAssertNotNil(error)
-
         }
     }
 }
+
+// MARK: - Mocked models
 
 private let mockResponseTransactions: PBTransactionsResponse = PBTransactionsResponse(items: [
     PBTransactionResponse(
@@ -104,8 +107,7 @@ private let mockResponseTransactions: PBTransactionsResponse = PBTransactionsRes
             )
         )
     )
-]
-)
+])
 
 private let mockTransactions = [
     PBTransaction(

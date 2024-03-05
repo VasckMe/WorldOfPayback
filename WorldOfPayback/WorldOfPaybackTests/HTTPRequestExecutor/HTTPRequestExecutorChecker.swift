@@ -8,7 +8,7 @@
 import Foundation
 @testable import WorldOfPayback
 
-class HTTPRequestExecutorChecker: HTTPRequestExecutorProtocol {
+final class HTTPRequestExecutorChecker: HTTPRequestExecutorProtocol {
     var calledMethod = false
     var callMethodCount = 0
     var resultError: Error?

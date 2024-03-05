@@ -8,8 +8,7 @@
 @testable import WorldOfPayback
 import Foundation
 
-class NetworkServiceChecker: NetworkServiceProtocol {
-    
+final class NetworkServiceChecker: NetworkServiceProtocol {
     var calledMethod = false
     var callMethodCount = 0
     
@@ -40,8 +39,12 @@ class NetworkServiceChecker: NetworkServiceProtocol {
             return try await handle(error: error)
         }
     }
-    
-    private func handle(error: Error) async throws -> [PBTransaction] {
+}
+
+// MARK: - Private
+
+private extension NetworkServiceChecker {
+    func handle(error: Error) async throws -> [PBTransaction] {
         guard let networkError = error as? NetworkError else {
             throw error
         }

@@ -9,7 +9,6 @@ import XCTest
 @testable import WorldOfPayback
 
 final class HTTPRequestExecutorTest: XCTestCase {
-
     private var sut: HTTPRequestExecutorChecker!
         
     override func setUpWithError() throws {
@@ -20,14 +19,16 @@ final class HTTPRequestExecutorTest: XCTestCase {
         sut = nil
     }
 
+    // MARK: - Test methods
+    
     func testExecuteSuccess() async throws {
         sut.resultSuccess = "Success"
         
         let data: String? = try? await sut.execute(request: .transactionGET)
         
+        XCTAssertNotNil(data)
         XCTAssertTrue(sut.calledMethod)
         XCTAssertEqual(sut.callMethodCount, 1)
-        XCTAssertNotNil(data)
     }
     
     func testExecuteFailure() async throws {

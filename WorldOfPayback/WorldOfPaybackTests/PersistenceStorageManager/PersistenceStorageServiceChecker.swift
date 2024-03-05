@@ -8,8 +8,7 @@
 import Foundation
 @testable import WorldOfPayback
 
-class PersistenceStorageServiceChecker: PersistenceStorageServiceProtocol {
-    
+final class PersistenceStorageServiceChecker: PersistenceStorageServiceProtocol {
     var calledSaveMethod = false
     var callSaveMethodCount = 0
     var saveResultError: Error?
@@ -43,5 +42,4 @@ class PersistenceStorageServiceChecker: PersistenceStorageServiceProtocol {
             return getTransactionResultSuccess
         }
     }
-    
 }
