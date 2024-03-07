@@ -1,5 +1,5 @@
 //
-//  MockNetworkService.swift
+//  FakeNetworkService.swift
 //  WorldOfPayback
 //
 //  Created by Anton Kasaryn on 27.02.24.
@@ -7,17 +7,7 @@
 
 import Foundation
 
-final class MockNetworkService {
-    private let persistenceService: PersistenceStorageServiceProtocol
-    
-    init(persistenceService: PersistenceStorageServiceProtocol) {
-        self.persistenceService = persistenceService
-    }
-}
-
-// MARK: - NetworkServiceProtocol
-
-extension MockNetworkService: NetworkServiceProtocol {
+final class FakeNetworkService: NetworkServiceProtocol {
     func fetchTransactions() async throws -> [PBTransaction] {
         await Task(priority: .medium) {
           await withUnsafeContinuation { continuation in
@@ -36,7 +26,6 @@ extension MockNetworkService: NetworkServiceProtocol {
             
             let response = try JSONDecoder().decode(PBTransactionsResponse.self, from: jsonData)
             let transactions = response.items.compactMap { PBTransaction(response: $0) }
-            try await persistenceService.save(transactions: transactions)
             
             return transactions
         } catch {

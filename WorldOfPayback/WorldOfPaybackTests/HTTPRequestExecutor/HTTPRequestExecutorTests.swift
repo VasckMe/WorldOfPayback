@@ -1,5 +1,5 @@
 //
-//  HTTPRequestExecutorTest.swift
+//  HTTPRequestExecutorTests.swift
 //  WorldOfPaybackTests
 //
 //  Created by Anton Kasaryn on 3.03.24.
@@ -9,10 +9,10 @@ import XCTest
 @testable import WorldOfPayback
 
 final class HTTPRequestExecutorTest: XCTestCase {
-    private var sut: HTTPRequestExecutorChecker!
+    private var sut: HTTPRequestExecutorSpy!
         
     override func setUpWithError() throws {
-        sut = HTTPRequestExecutorChecker()
+        sut = HTTPRequestExecutorSpy()
     }
 
     override func tearDownWithError() throws {
@@ -22,24 +22,23 @@ final class HTTPRequestExecutorTest: XCTestCase {
     // MARK: - Test methods
     
     func testExecuteSuccess() async throws {
-        sut.resultSuccess = "Success"
+        sut.stockSuccess = "Success"
         
-        let data: String? = try? await sut.execute(request: .transactionGET)
-        
+        let data: String = try await sut.execute(request: .transactionGET)
         XCTAssertNotNil(data)
-        XCTAssertTrue(sut.calledMethod)
-        XCTAssertEqual(sut.callMethodCount, 1)
+        XCTAssertTrue(sut.callExecute)
+        XCTAssertEqual(sut.callExecuteCount, 1)
     }
     
     func testExecuteFailure() async throws {
-        sut.resultError = NetworkError.unknown
+        sut.stockError = NetworkError.unknown
         
         do {
             let _: String? = try await sut.execute(request: .transactionGET)
         } catch {
-            XCTAssertTrue(sut.calledMethod)
-            XCTAssertEqual(sut.callMethodCount, 1)
             XCTAssertNotNil(error)
+            XCTAssertTrue(sut.callExecute)
+            XCTAssertEqual(sut.callExecuteCount, 1)
         }
     }
 }

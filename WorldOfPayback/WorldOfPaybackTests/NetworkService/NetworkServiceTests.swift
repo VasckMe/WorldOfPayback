@@ -1,5 +1,5 @@
 //
-//  NetworkServiceTest.swift
+//  NetworkServiceTests.swift
 //  WorldOfPaybackTests
 //
 //  Created by Anton Kasaryn on 3.03.24.
@@ -10,69 +10,44 @@ import XCTest
 
 final class NetworkServiceTest: XCTestCase {
 
-    private var sut: NetworkServiceChecker!
-    private var requestExecutorChecker: HTTPRequestExecutorChecker!
-    private var persistenceStorageServiceChecker: PersistenceStorageServiceChecker!
+    private var sut: NetworkServiceSpy!
+    private var requestExecutorChecker: HTTPRequestExecutorSpy!
     
     override func setUpWithError() throws {
-        requestExecutorChecker = HTTPRequestExecutorChecker()
-        persistenceStorageServiceChecker = PersistenceStorageServiceChecker()
-        sut = NetworkServiceChecker(
-            persistenceStorageService: persistenceStorageServiceChecker,
+        requestExecutorChecker = HTTPRequestExecutorSpy()
+        sut = NetworkServiceSpy(
             requestExecutor: requestExecutorChecker
         )
     }
 
     override func tearDownWithError() throws {
         requestExecutorChecker = nil
-        persistenceStorageServiceChecker = nil
         sut = nil
     }
     
     // MARK: - Test methods
     
     func testFetchTransactionsSuccess() async throws {
-        requestExecutorChecker.resultSuccess = mockResponseTransactions
+        requestExecutorChecker.stockSuccess = mockResponseTransactions
         
-        let transactions = try? await sut.fetchTransactions()
-    
-        XCTAssertTrue(sut.calledMethod)
-        XCTAssertEqual(sut.callMethodCount, 1)
-        XCTAssertTrue(sut.didGetExecutorResponse)
-        XCTAssertFalse(sut.didGetPersistenceResponse)
-        XCTAssertNotNil(transactions)
-        XCTAssertFalse(transactions?.isEmpty ?? true, "Transactions number can't be 0")
-        XCTAssertEqual(transactions?.count, 2, "Transactions must be equal to 2")
-    }
-    
-    func testFetchTransactionsPersistenceSuccess() async throws {
-        requestExecutorChecker.resultError = NetworkError.offline
-        persistenceStorageServiceChecker.getTransactionResultSuccess = mockTransactions
+        let transactions = try await sut.fetchTransactions()
         
-        let transactions = try? await sut.fetchTransactions()
-    
-        XCTAssertTrue(sut.calledMethod)
-        XCTAssertEqual(sut.callMethodCount, 1)
-        XCTAssertTrue(sut.didGetExecutorResponse)
-        XCTAssertTrue(sut.didGetPersistenceResponse)
         XCTAssertNotNil(transactions)
-        XCTAssertFalse(transactions?.isEmpty ?? true, "Transactions number can't be 0")
-        XCTAssertEqual(transactions?.count, 2, "Transactions must be equal to 2")
+        XCTAssertTrue(sut.callFetch)
+        XCTAssertEqual(sut.callFetchCount, 1)
+        XCTAssertFalse(transactions.isEmpty, "Transactions number can't be 0")
+        XCTAssertEqual(transactions.count, 2, "Transactions must be equal to 2")
     }
     
     func testFetchTransactionsFailure() async throws {
-        requestExecutorChecker.resultError = NetworkError.unknown
-        persistenceStorageServiceChecker.getTransactionResultError = PersistenceStorageManagerError.unknown
-        
+        requestExecutorChecker.stockError = NetworkError.unknown
         
         do {
             let _ = try await sut.fetchTransactions()
         } catch {
             XCTAssertNotNil(error)
-            XCTAssertTrue(sut.calledMethod)
-            XCTAssertEqual(sut.callMethodCount, 1)
-            XCTAssertTrue(sut.didGetExecutorResponse)
-            XCTAssertFalse(sut.didGetPersistenceResponse)
+            XCTAssertTrue(sut.callFetch)
+            XCTAssertEqual(sut.callFetchCount, 1)
         }
     }
 }

@@ -88,10 +88,6 @@ extension TransactionViewModel {
         return dataProvider.alertAnswerLabel
     }
     
-    var networkOfflineLabel: String {
-        return dataProvider.networkOfflineLabel
-    }
-    
     var errorLabel: String {
         return dataProvider.errorLabel
     }

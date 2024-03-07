@@ -18,7 +18,5 @@ final class ServiceAssembly {
         persistenceManager: PersistenceStorageManager.shared
     )
     
-    let mockNetworkService: NetworkServiceProtocol = MockNetworkService(
-        persistenceService: PersistenceStorageService(persistenceManager: PersistenceStorageManager.shared)
-    )
+    let mockNetworkService: NetworkServiceProtocol = FakeNetworkService()
 }

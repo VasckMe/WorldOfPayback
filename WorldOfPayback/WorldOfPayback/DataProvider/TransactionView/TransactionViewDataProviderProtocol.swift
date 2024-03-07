@@ -13,6 +13,5 @@ protocol TransactionViewDataProviderProtocol {
     var filterMenuLabel: String { get }
     var categoryMenuLabel: String { get }
     var alertAnswerLabel: String { get }
-    var networkOfflineLabel: String { get }
     var errorLabel: String { get }
 }

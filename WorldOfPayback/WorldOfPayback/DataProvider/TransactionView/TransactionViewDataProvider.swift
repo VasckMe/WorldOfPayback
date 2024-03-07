@@ -34,10 +34,6 @@ final class TransactionViewDataProvider: TransactionViewDataProviderProtocol {
         return "TransactionView_Alert_answer".localized()
     }
     
-    var networkOfflineLabel: String {
-        return "NetworkError_offline_description".localized()
-    }
-    
     var errorLabel: String {
         return "Error".localized()
     }
