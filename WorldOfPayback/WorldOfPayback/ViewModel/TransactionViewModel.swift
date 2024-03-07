@@ -28,15 +28,22 @@ final class TransactionViewModel: ObservableObject {
     }
     
     private let networkService: NetworkServiceProtocol
+    private let persistenceStorageService: PersistenceStorageServiceProtocol
     private let dataProvider: TransactionViewDataProviderProtocol
     
-    init(networkService: NetworkServiceProtocol, dataProvider: TransactionViewDataProviderProtocol) {
+    init(
+        networkService: NetworkServiceProtocol,
+        persistenceStorageService: PersistenceStorageServiceProtocol,
+        dataProvider: TransactionViewDataProviderProtocol
+    ) {
         self.networkService = networkService
+        self.persistenceStorageService = persistenceStorageService
         self.dataProvider = dataProvider
     }
     
     func fetchTransactions() {
         isLoading = true
+        
         Task {
             do {
                 let transactions = try await networkService.fetchTransactions()
@@ -45,11 +52,7 @@ final class TransactionViewModel: ObservableObject {
                     isLoading = false
                 }
             } catch {
-                await MainActor.run {
-                    errorMessage = (error as? NetworkError)?.description ?? "Error".localized()
-                    isLoading = false
-                    isError = true
-                }
+                await handle(error: error)
             }
         }
     }
@@ -91,5 +94,43 @@ extension TransactionViewModel {
     
     var errorLabel: String {
         return dataProvider.errorLabel
+    }
+}
+
+// MARK: - Private
+
+private extension TransactionViewModel {
+    func handle(error: Error) async {
+        guard let networkError = error as? NetworkError else {
+            await MainActor.run {
+                errorMessage = NetworkError.unknown.description
+                isLoading = false
+                isError = true
+            }
+            
+            return
+        }
+
+        switch networkError {
+        case .offline:
+            let storedTransactions = try? await persistenceStorageService.getTransactions()
+            
+            await MainActor.run {
+                if let transactions = storedTransactions {
+                    self.transactions = transactions
+                }
+                
+                errorMessage = networkError.description
+                isLoading = false
+                isError = true
+            }
+            
+        default:
+            await MainActor.run {
+                errorMessage = networkError.description
+                isLoading = false
+                isError = true
+            }
+        }
     }
 }

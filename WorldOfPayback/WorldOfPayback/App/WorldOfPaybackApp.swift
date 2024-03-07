@@ -16,7 +16,8 @@ struct WorldOfPaybackApp: App {
         WindowGroup {
             TransactionView(
                 viewModel: TransactionViewModel(
-                    networkService: ServiceAssembly.shared.mockNetworkService,
+                    networkService: ServiceAssembly.shared.networkService,
+                    persistenceStorageService: ServiceAssembly.shared.persistenceService,
                     dataProvider: DataProvider.shared.transactionViewDataProvider
                 )
             )

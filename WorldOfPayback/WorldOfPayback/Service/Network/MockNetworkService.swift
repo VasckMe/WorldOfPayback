@@ -40,23 +40,6 @@ extension MockNetworkService: NetworkServiceProtocol {
             
             return transactions
         } catch {
-            return try await handle(error: error)
-        }
-    }
-}
-
-// MARK: - Private
-
-private extension MockNetworkService {
-    func handle(error: Error) async throws -> [PBTransaction] {
-        guard let networkError = error as? NetworkError else {
-            throw error
-        }
-        
-        switch networkError {
-        case .offline:
-            return try await persistenceService.getTransactions()
-        case .badResponse, .badParsing, .unknown:
             throw error
         }
     }

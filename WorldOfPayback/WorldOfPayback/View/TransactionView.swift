@@ -69,6 +69,7 @@ struct ContentView_Previews: PreviewProvider {
         TransactionView(
             viewModel: TransactionViewModel(
                 networkService: ServiceAssembly.shared.mockNetworkService,
+                persistenceStorageService: ServiceAssembly.shared.persistenceService,
                 dataProvider: DataProvider.shared.transactionViewDataProvider
             )
         )

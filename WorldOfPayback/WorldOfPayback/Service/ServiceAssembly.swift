@@ -11,8 +11,11 @@ final class ServiceAssembly {
     static let shared = ServiceAssembly()
     
     let networkService: NetworkServiceProtocol = NetworkService(
-        executor: NetworkAssembly.requestExecutor,
-        persistenceService: PersistenceStorageService(persistenceManager: PersistenceStorageManager.shared)
+        executor: NetworkAssembly.requestExecutor
+    )
+    
+    let persistenceService: PersistenceStorageService = PersistenceStorageService(
+        persistenceManager: PersistenceStorageManager.shared
     )
     
     let mockNetworkService: NetworkServiceProtocol = MockNetworkService(
