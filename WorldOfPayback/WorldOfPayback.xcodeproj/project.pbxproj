@@ -28,7 +28,7 @@
 		18B6FBD52B99E4D00016A635 /* DummyPersistenceStorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B6FBD42B99E4D00016A635 /* DummyPersistenceStorageService.swift */; };
 		18B6FBD82B99F4DE0016A635 /* TransactionViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B6FBD72B99F4DE0016A635 /* TransactionViewModelTests.swift */; };
 		18B6FBDA2B99F55B0016A635 /* DummyNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18B6FBD92B99F55B0016A635 /* DummyNetworkService.swift */; };
-		18B6FBDB2B9A036C0016A635 /* FakeNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626E22B8E681300662542 /* FakeNetworkService.swift */; };
+		18B6FBDC2B9A040E0016A635 /* FakeNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18F626E22B8E681300662542 /* FakeNetworkService.swift */; };
 		18C566C52B9758990090B797 /* View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C566C42B9758990090B797 /* View.swift */; };
 		18C566C82B977F920090B797 /* TransactionViewDataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C566C72B977F920090B797 /* TransactionViewDataProvider.swift */; };
 		18C566CA2B9784100090B797 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18C566C92B9784100090B797 /* DataProvider.swift */; };
@@ -177,7 +177,6 @@
 		18156DF82B950BC900752C82 /* NetworkService */ = {
 			isa = PBXGroup;
 			children = (
-				18F626E22B8E681300662542 /* FakeNetworkService.swift */,
 				18156DF42B94F77900752C82 /* NetworkServiceSpy.swift */,
 				18156DFC2B95130400752C82 /* NetworkServiceTests.swift */,
 				18B6FBD92B99F55B0016A635 /* DummyNetworkService.swift */,
@@ -265,6 +264,7 @@
 		184DAD662B90A89A0022A6B9 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				18F626E22B8E681300662542 /* FakeNetworkService.swift */,
 				18F626CF2B8E4C7000662542 /* NetworkService.swift */,
 				18F626E02B8E551800662542 /* NetworkServiceProtocol.swift */,
 			);
@@ -655,6 +655,7 @@
 				18AB08CC2B920C76008C26FF /* ServiceAssembly.swift in Sources */,
 				18F626BD2B8E2F0500662542 /* HTTPRequestModel.swift in Sources */,
 				184DAD652B90A7D40022A6B9 /* PersistenceStorageManagerError.swift in Sources */,
+				18B6FBDC2B9A040E0016A635 /* FakeNetworkService.swift in Sources */,
 				18F626D82B8E4ED000662542 /* PBTransactionDetailResponse.swift in Sources */,
 				18F626C72B8E35E000662542 /* HTTPRequest.swift in Sources */,
 				18F626B22B8E2C1200662542 /* TransactionViewModel.swift in Sources */,
@@ -670,7 +671,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18B6FBDB2B9A036C0016A635 /* FakeNetworkService.swift in Sources */,
 				18156DFD2B95130400752C82 /* NetworkServiceTests.swift in Sources */,
 				18156E022B95189700752C82 /* PersistenceStorageServiceSpy.swift in Sources */,
 				18B6FBD82B99F4DE0016A635 /* TransactionViewModelTests.swift in Sources */,
